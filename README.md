@@ -9,6 +9,6 @@ Launcher for GoldSrc Engine games with advanced game settings.
 	 - [BunnymodXT](https://github.com/YaLTeR/BunnymodXT)
 	 - [RInput](https://fearless-assassins.com/files/file/1656-rinput/)
 	 - [LiveSplit](https://livesplit.org/)
-# Screenshots
+# Beta Screenshots
 ![Library](screenshots/Library.png)
 ![Downloads](screenshots/Downloads.png)
