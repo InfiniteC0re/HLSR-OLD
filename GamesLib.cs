@@ -1,12 +1,13 @@
 using System.IO;
+using System.Windows.Forms;
 
 namespace HLSR
 {
     class Game
     {
-        string gamename { get; }
-        string directory { get; }
-        bool installed { get; set; }
+        public string gamename { get; }
+        public string directory { get; }
+        public bool installed { get; set; }
         public Game(string name, string dir)
         {
             gamename = name;
@@ -25,7 +26,7 @@ namespace HLSR
             }
             return false;
         }
-        public static void FillStatuses()
+        public static void UpdateLib()
         {
             library[0] = new Game("OpenAG", "ag");
             library[1] = new Game("Half-Life", "hl");
