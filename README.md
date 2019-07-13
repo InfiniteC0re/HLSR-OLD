@@ -2,7 +2,7 @@
 Launcher for GoldSrc Engine games with advanced game settings.
 # Features
 + In-game Discord RPC
-	 + Current map
+	 + Displaying current map
 + Steam Friends Synchronization
 + Downloadable Modules
 + Advanced Customization Possibility
