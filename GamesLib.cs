@@ -33,7 +33,7 @@ namespace HLSR
             library[2] = new Game("Blue Shift", "bshift");
             library[3] = new Game("Opposing Force", "gearbox");
         }
-        public static Game[] getLibrary()
+        public static Game[] GetLibrary()
         {
             return library;
         }
