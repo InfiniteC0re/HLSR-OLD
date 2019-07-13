@@ -7,7 +7,7 @@ Launcher for GoldSrc Engine games with advanced game settings.
 + Downloadable Modules
 + Advanced Customization Possibility
 + Player Monitor
-	 - Can display current map, full health (more than 255)
+	 - Displaying current map, full health (more than 255)
 	 - Working in another window
 	 - Compatible with second monitor
 + External Tools
