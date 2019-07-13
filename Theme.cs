@@ -24,6 +24,7 @@ namespace HLSR
                 };
                 foreach (Button button in buttons)
                 {
+                    button.BackColor = panel_c;
                     button.FlatAppearance.MouseDownBackColor = button_click_c;
                 };
                 panel.BackColor = panel_c;
