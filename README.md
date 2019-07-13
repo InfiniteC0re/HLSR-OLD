@@ -6,6 +6,7 @@ Launcher for GoldSrc Engine games with advanced game settings.
 + Downloadable Modules
 + Scripts/Configs Editor
 + Advanced Customization Possibility
++ Auto Updates
 + External Tools
 	 - [BunnymodXT](https://github.com/YaLTeR/BunnymodXT)
 	 - [RInput](https://fearless-assassins.com/files/file/1656-rinput/)
