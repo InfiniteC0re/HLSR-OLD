@@ -10,3 +10,5 @@ Launcher for GoldSrc Engine games with advanced game settings.
 	 - [RInput](https://fearless-assassins.com/files/file/1656-rinput/)
 	 - [LiveSplit](https://livesplit.org/)
 # Screenshots
+![Library](screenshots/Library.png)
+![Downloads](screenshots/Downloads.png)
