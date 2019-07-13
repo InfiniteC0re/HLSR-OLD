@@ -21,6 +21,7 @@ namespace HLSR
                 {
                     buttons[buttons.Length - 2].ForeColor = button_active_c;
                     buttons[buttons.Length - 2].BackColor = button_c;
+                    panel.Controls.OfType<Panel>().ToArray()[0].BackColor = button_active_c;
                 };
                 foreach (Button button in buttons)
                 {
