@@ -29,7 +29,7 @@ namespace HLSR
         public static void UpdateLib()
         {
             library[0] = new Game("OpenAG", "ag");
-            library[1] = new Game("Half-Life", "hl");
+            library[1] = new Game("Half-Life", "valve");
             library[2] = new Game("Blue Shift", "bshift");
             library[3] = new Game("Opposing Force", "gearbox");
         }
