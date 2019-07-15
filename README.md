@@ -2,9 +2,13 @@
 Launcher for GoldSrc Engine games with advanced game settings.
 # Features
 + In-game Discord RPC
-	 + Displaying current map in game status
-+ Scripts/Configs Editor
++ Scripts Editor
 + Advanced Customization Possibility
+	 - Menu Backgrounds
+	 - Items Sprites
+	 - Hud Color (only with BunnymodXT)
+	 - Crosshairs
+	 - Skyboxes
 + Auto Updates
 + External Tools
 	 - [BunnymodXT](https://github.com/YaLTeR/BunnymodXT)
