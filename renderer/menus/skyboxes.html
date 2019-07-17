@@ -1,0 +1,62 @@
+<script>
+  var active = 0;
+  var activeButtonHTML = `<i class="far fa-check-square"></i>`;
+  var deactiveButtonHTML = `<i class="far fa-square"></i>`;
+  var radioButtons = document.getElementsByClassName("entry");
+  radioButtons[active].active = true;
+  for(let i = 0; i < radioButtons.length; i++){
+    if(i !== active){
+      radioButtons[i].active = false;
+    }
+    radioButtons[i].addEventListener("click", (e) => {
+      if(active != i){
+        radioButtons[i].active = true;
+        radioButtons[active].active = false;
+        radioButtons[i].children[0].innerHTML = activeButtonHTML;
+        radioButtons[active].children[0].innerHTML = deactiveButtonHTML;
+        active = i;
+      }
+    });
+  };
+  var getActiveId = function() {
+    for(let i = 0; i < radioButtons.length; i++){
+      if(radioButtons[i].active) return i;
+    };
+  };
+  $("#preview").click(() => {
+    let image = null;
+    let active = getActiveId();
+    if(active == 0){
+      image = "Standard";
+    }else if(active == 1){
+      image = "BM";
+    }else if(active == 2){
+      image = "CF";
+    }else if(active == 3){
+      image = "ST";
+    }else if(active == 4){
+      image = "XEN";
+    }else if(active == 5){
+      image = "XEN 2";
+    }
+    $(".preview").css("display", "block");
+    $(".image").css("width", "600px");
+    $(".image").css("height", "400px");
+    $(".image").css("background", `url(images/${image.replace(" ", "%20")}.jpg)`);
+  });
+</script>
+<div class="list">
+  <div class="entry" radio>
+    <div class="entry-icon"><i class="far fa-check-square"></i></div>
+    <div class="entry-text">Standard Skyboxes Pack</div>
+  </div>
+  <div class="entry" radio>
+    <div class="entry-icon"><i class="far fa-square"></i></div>
+    <div class="entry-text">Better Quality Pack</div>
+  </div>
+  <div class="buttonsList">
+    <div class="button" id="install">INSTALL</div>
+    <div class="button" onclick="panel.loadMenu('CUSTOMIZATION')">BACK</div>
+  </div>
+</div>
+<div class="bottom">Skyboxes can be better.</div>

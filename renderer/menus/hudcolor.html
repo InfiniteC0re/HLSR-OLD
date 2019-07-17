@@ -1,0 +1,29 @@
+<script>
+  function hexToRgb(hex) {
+    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result ? {
+      r: parseInt(result[1], 16),
+      g: parseInt(result[2], 16),
+      b: parseInt(result[3], 16)
+    } : null;
+  };
+  var color = hexToRgb($("#hudColor").val());
+  $(".colorPicker").css("background", $("#hudColor").val());
+  $("#command").val(`bxt_hud_color ${color.r} ${color.g} ${color.b}`);
+  $("#hudColor").on('input', () => {
+    var color = hexToRgb($("#hudColor").val());
+    $(".colorPicker").css("background", $("#hudColor").val());
+    $("#command").val(`bxt_hud_color ${color.r} ${color.g} ${color.b}`);
+  });
+</script>
+<div class="list">
+  <input type="color" id="hudColor" value="#4f6cff">
+  <div class="colorPicker" onclick="$('#hudColor').click()"></div>
+  <input type="text" id="command" readonly>
+  <div class="buttonsList">
+    <div class="button" onclick="$('#hudColor').click()">SELECT COLOR</div>
+    <div class="button" id="save">SAVE</div>
+    <div class="button" onclick="panel.loadMenu('CUSTOMIZATION')">BACK</div>
+  </div>
+</div>
+<div class="bottom">You can set any color you want for the game UI (needs BunnymodXT).</div>

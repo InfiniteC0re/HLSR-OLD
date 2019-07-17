@@ -1,0 +1,15 @@
+{
+  "name": "hlsr",
+  "version": "1.0.0",
+  "description": "Tools pack for GoldSrc games speedrunning.",
+  "main": "index.js",
+  "dependencies": {
+    "electron": "^5.0.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "InfC0re",
+  "license": "ISC"
+}

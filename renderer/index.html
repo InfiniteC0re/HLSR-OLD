@@ -1,0 +1,302 @@
+<html>
+  <head>
+    <style>
+      :root{
+        --border-height: 26px;
+        --panel-color: rgb(14,14,14);
+        --button-hover: rgb(16,16,16);
+        --panel-width: 240px;
+        --background-color: rgb(18,18,18);
+        --text-color: #a5a5a5;
+      }
+      body{
+        margin: 0;
+        background: var(--background-color);
+        font-family: Roboto;
+        -webkit-user-select:none;
+        -webkit-font-smoothing: antialiased;
+      }
+      #windowBorder{
+        display: flex;
+        justify-content: flex-end;
+        -webkit-app-region: drag;
+        width: 100%;
+        height: var(--border-height);
+        background: var(--panel-color);
+      }
+      #windowBorder .button{
+        width: var(--border-height);
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 16px;
+        color: var(--text-color);
+        -webkit-app-region: no-drag;
+      }
+      #content{
+        background: var(--background-color);
+        width: 100%;
+        height: calc(100vh - var(--border-height));
+        max-height: calc(100vh - var(--border-height));
+        z-index: 1;
+        color:var(--text-color);
+        position: relative;
+      }
+      #panel{
+        height: calc(100vh - var(--border-height));
+        width: var(--panel-width);
+        background: var(--panel-color);
+        position: relative;
+      }
+      .button{
+        text-transform: uppercase;
+        background: var(--panel-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+      }
+      #panel .buttons{
+        text-align: center;
+        color:var(--text-color);
+      }
+      #panel .buttons .button{
+        height: 64px;
+        width: var(--panel-width);
+        justify-content: flex-start;
+      }
+      #panel .buttons .button[active]{
+        background: var(--background-color);
+        color: #4f6cff;
+      }
+      #panel .buttons .bottom{
+        position: absolute;
+        bottom: 0px;
+      }
+      .flex{
+        display: flex;
+      }
+      .panelButton .fas, .panelButton{
+        padding: 0 8px;
+        margin-right: 8px;
+        width: 30px;
+      }
+      .gamePanel{
+        width: 265px;
+        margin: 3.5px;
+        border-radius: 2px;
+        overflow: hidden;
+      }
+      .gamePanel .gameImage{
+        width: 265px;
+        height: 130px;
+        background-size: cover !important;
+        background-position: center !important;
+      }
+      .gameImage[hl]{
+        background: url(images/hl.jpg);
+      }
+      .gameImage[of]{
+        background: url(images/of.jpg);
+      }
+      .gameImage[bs]{
+        background: url(images/bs.jpg);
+      }
+      .gameImage[ag]{
+        background: url(images/ag.jpg);
+      }
+      .gamePanel[hl]{
+        color:#c72323;
+      }
+      .gamePanel[bs]{
+        color:#2382c7;
+      }
+      .gamePanel[of]{
+        color:#23c757;
+      }
+      .gamePanel[ag]{
+        color:#b4c723;
+      }
+      .gamePanel .button{
+        width: 100%;
+        height: 44px;
+      }
+      .gamePanel .buttons{
+        display: flex;
+      }
+      .button-small{
+        width: 60px !important;
+      }
+      .button:hover, .entry:hover{
+        background:var(--button-hover);
+      }
+      .list{
+        display: flex;
+        flex-wrap: wrap;
+        position: relative;
+        padding: 8px;
+      }
+      #content .bottom{
+        position: absolute;
+        bottom: 6px;
+        width: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        color:#525252;
+      }
+      .buttonsList{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .buttonsList .button{
+        width: 160px;
+        height: 60px;
+        margin-top:14px;
+        border-radius: 0px;
+      }
+      .buttonsList .button:nth-child(1){
+        border-radius: 4px 0 0 4px;
+      }
+      .buttonsList .button:nth-last-child(1){
+        border-radius: 0 4px 4px 0;
+      }
+      .editor-wrap{
+        width:100%;
+        position:relative;
+        height:calc(100vh - var(--border-height) - 16px - 80px);
+        display:flex;
+        border-radius:4px;
+        overflow:hidden;
+      }
+      .editor{
+        color: #4f6cff;
+        height:100%;
+        width:100%;
+        resize:none;
+        outline:none;
+        font-size:18px;
+        font-family: Roboto;
+        border:none;
+        padding:8px;
+        background:var(--panel-color);
+      }
+      .entry{
+        width: 100%;
+        height: 60px;
+        background:var(--panel-color);
+        font-size: 20px;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        border-radius: 4px;
+      }
+      .entry[radio]{
+        cursor: pointer;
+      }
+      .entry:nth-child(1){
+        margin-top: 0;
+      }
+      .entry{
+        margin-top: 8px;
+      }
+      .entry .far, .entry .fas{
+        width: 34px;
+        margin-left: 14px;
+      }
+      .preview{
+        display: none;
+        height: calc(100vh - var(--border-height));
+        width: 100%;
+        position: absolute;
+        top:var(--border-height);
+        left: 0;
+        background: rgba(0,0,0,.8);
+        z-index: 2;
+      }
+      .preview .image{
+        background-position: center !important;
+        background-size: cover !important;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 4px;
+      }
+      #hudColor{
+        display: none;
+      }
+      .colorPicker{
+        border-radius: 4px;
+        width: 100%;
+        height: 50px;
+      }
+      input[type=text]{
+        margin-top:16px;
+        color: #4f6cff;
+        width:100%;
+        resize:none;
+        outline:none;
+        font-size:18px;
+        font-family: Roboto;
+        border:none;
+        padding:8px;
+        background:var(--panel-color);
+      }
+      .settings{
+        width: 100%;
+      }
+      .settings .settings-section{
+        text-align: center;
+        color:lightgray;
+        font-size: 22px;
+        margin: 16px 0;
+      }
+      .settings .buttons{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        margin-top:8px;
+      }
+      .settings .button{
+        width: 100%;
+        height: 60px;
+      }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css" integrity="sha256-PF6MatZtiJ8/c9O9HQ8uSUXr++R9KBYu4gbNG5511WE=" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="./scripts/panel.js"></script>
+    <script>
+      var shell = require('electron').shell;
+      window.$ = window.jQuery = require('../jquery.js');
+      $(document).ready(() =>{
+        $("#panel").load("panel.html", function() {
+          panel.updateEvents();
+          panel.update();
+        });
+      });
+      var selectedGame;
+    </script>
+  </head>
+  <body>
+    <div id="windowBorder">
+      <div id="hideButton" class="button"><i class="fas fa-minus"></i></div>
+      <div id="closeButton" class="button"><i class="fas fa-times"></i></div>
+    </div>
+    <div class="preview" onclick="$('.preview').hide()">
+      <div class="image"></div>
+    </div>
+    <div class="flex">
+      <div id="panel">
+
+      </div>
+      <div id="content">
+        <div class="menu"></div>
+      </div>
+    </div>
+  </body>
+</html>

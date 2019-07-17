@@ -1,0 +1,53 @@
+<script>
+  $(".hl").click(() => {
+    selectedGame = "Half-Life";
+  });
+  $(".bs").click(() => {
+    selectedGame = "Blue Shift";
+  });
+  $(".of").click(() => {
+    selectedGame = "Opposing Force";
+  });
+  $(".ag").click(() => {
+    selectedGame = "OpenAG";
+  });
+</script>
+<div class="list">
+  <div class="gamePanel" hl>
+    <div class="gameImage" hl></div>
+    <div class="buttons">
+      <div class="button hl">Play</div>
+      <div class="button button-small hl" onclick="panel.loadMenu('gamesettings')">
+        <i class="fas fa-wrench"></i>
+      </div>
+    </div>
+  </div>
+  <div class="gamePanel" bs>
+    <div class="gameImage" bs></div>
+    <div class="buttons">
+      <div class="button bs">Play</div>
+      <div class="button button-small bs" onclick="panel.loadMenu('gamesettings')">
+        <i class="fas fa-wrench"></i>
+      </div>
+    </div>
+  </div>
+  <div class="gamePanel" of>
+    <div class="gameImage" of></div>
+    <div class="buttons">
+      <div class="button of">Play</div>
+      <div class="button button-small of" onclick="panel.loadMenu('gamesettings')">
+        <i class="fas fa-wrench"></i>
+      </div>
+    </div>
+  </div>
+  <div class="gamePanel" ag>
+    <div class="gameImage" ag></div>
+    <div class="buttons">
+      <div class="button ag">Play</div>
+      <div class="button button-small ag" onclick="panel.loadMenu('gamesettings')">
+        <i class="fas fa-wrench"></i>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="bottom">You can play any of these games if you have licenced Half-Life in Steam.</div>
