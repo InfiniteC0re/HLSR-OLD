@@ -1,4 +1,4 @@
-# HLSR (In Development)
+# HLSR (Only Interface)
 Launcher for GoldSrc Engine games with advanced game settings.
 # Features
 + In-game Discord RPC
