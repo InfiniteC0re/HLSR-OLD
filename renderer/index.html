@@ -271,12 +271,22 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="./scripts/panel.js"></script>
     <script>
+	    var startApp = require('electron').remote.require(`${__dirname}../../index.js`).start;
+      var config = require('electron').remote.require(`${__dirname}../../index.js`).config;
+      const {BrowserWindow} = require('electron').remote;
+      var appWindow = BrowserWindow.getFocusedWindow();
       var shell = require('electron').shell;
       window.$ = window.jQuery = require('../jquery.js');
       $(document).ready(() =>{
         $("#panel").load("panel.html", function() {
           panel.updateEvents();
           panel.update();
+        });
+        $("#hideButton").click(() => {
+          appWindow.minimize();
+        });
+        $("#closeButton").click(() => {
+          appWindow.close();
         });
       });
       var selectedGame;

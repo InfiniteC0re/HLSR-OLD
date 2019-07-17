@@ -1,0 +1,22 @@
+{
+	"games": {
+		"hl": {
+			"bxt": false,
+			"ri": false,
+			"ls": false,
+			"won": true
+		},
+		"bs": {
+			"bxt": true,
+			"ri": false,
+			"ls": false,
+			"won": null
+		},
+		"of": {
+			"bxt": true,
+			"ri": false,
+			"ls": false,
+			"won": false
+		}
+	}
+}

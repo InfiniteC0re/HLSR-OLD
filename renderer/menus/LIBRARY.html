@@ -8,15 +8,61 @@
   $(".of").click(() => {
     selectedGame = "Opposing Force";
   });
-  $(".ag").click(() => {
-    selectedGame = "OpenAG";
+
+  $("#playHL").click(() => {
+    let game = 'valve';
+
+    let bxt = config.data.games['hl'].bxt;
+    let ri = config.data.games['hl'].ri;
+    let ls = config.data.games['hl'].ls;
+    let won = config.data.games['hl'].won;
+
+    if(won) game = "valve_WON";
+    let args = [game];
+    if(bxt) args.push("-bxt");
+    if(ri) args.push("-ri");
+    if(ls) args.push("-ls");
+    startApp("run", args);
+  });
+  $("#playBS").click(() => {
+    let game = 'bshift';
+
+    let bxt = config.data.games['bs'].bxt;
+    let ri = config.data.games['bs'].ri;
+    let ls = config.data.games['bs'].ls;
+
+    let args = [game];
+    if(bxt) args.push("-bxt");
+    if(ri) args.push("-ri");
+    if(ls) args.push("-ls");
+    startApp("run", args);
+  });
+  $("#playOF").click(() => {
+    let game = 'gearbox';
+
+    let bxt = config.data.games['of'].bxt;
+    let ri = config.data.games['of'].ri;
+    let ls = config.data.games['of'].ls;
+    let won = config.data.games['of'].won;
+
+    if(won) game = "gearbox_WON";
+    let args = [game];
+    if(bxt) args.push("-bxt");
+    if(ri) args.push("-ri");
+    if(ls) args.push("-ls");
+    startApp("run", args);
+  });
+  $("#playAG").click(() => {
+    let game = 'ag';
+    let args = [game];
+    startApp("run", args);
   });
 </script>
 <div class="list">
   <div class="gamePanel" hl>
     <div class="gameImage" hl></div>
     <div class="buttons">
-      <div class="button hl">Play</div>
+      <div class="button hl" id="playHL">Play</div>
       <div class="button button-small hl" onclick="panel.loadMenu('gamesettings')">
         <i class="fas fa-wrench"></i>
       </div>
@@ -25,7 +71,7 @@
   <div class="gamePanel" bs>
     <div class="gameImage" bs></div>
     <div class="buttons">
-      <div class="button bs">Play</div>
+      <div class="button bs" id="playBS">Play</div>
       <div class="button button-small bs" onclick="panel.loadMenu('gamesettings')">
         <i class="fas fa-wrench"></i>
       </div>
@@ -34,7 +80,7 @@
   <div class="gamePanel" of>
     <div class="gameImage" of></div>
     <div class="buttons">
-      <div class="button of">Play</div>
+      <div class="button of" id="playOF">Play</div>
       <div class="button button-small of" onclick="panel.loadMenu('gamesettings')">
         <i class="fas fa-wrench"></i>
       </div>
@@ -43,10 +89,7 @@
   <div class="gamePanel" ag>
     <div class="gameImage" ag></div>
     <div class="buttons">
-      <div class="button ag">Play</div>
-      <div class="button button-small ag" onclick="panel.loadMenu('gamesettings')">
-        <i class="fas fa-wrench"></i>
-      </div>
+      <div class="button ag" id="playAG">Play</div>
     </div>
   </div>
 </div>

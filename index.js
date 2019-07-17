@@ -1,6 +1,7 @@
-const electron = require("electron");
+const electron = require('electron');
 const { spawn } = require('child_process');
 const app = electron.app;
+const fs = require('fs');
 const BrowserWindow = electron.BrowserWindow;
 
 let window = null;
@@ -24,4 +25,46 @@ app.on('window-all-closed', () => {
     app.quit();
 });
 
-//exports.start = () => {spawn("./binaries/game.exe", ["-game", "hl", "-console", "echo", "hello world!"])};
+config = {};
+config.data;
+config.read = function(param){
+  try{
+    config.data = JSON.parse(fs.readFileSync('config.json'));
+  }catch(e){
+    config.data = {
+      "games":{
+        "hl":{
+          "bxt": false,
+          "ri": false,
+          "ls": false,
+          "won": false
+        },
+        "bs":{
+          "bxt": false,
+          "ri": false,
+          "ls": false,
+          "won": null
+        },
+        "of":{
+          "bxt": false,
+          "ri": false,
+          "ls": false,
+          "won": false
+        }
+      }
+    };
+    fs.writeFileSync('config.json', JSON.stringify(config.data, null, "\t"))
+  }
+  return config.data[param] != undefined ? config.data[param] : {};
+};
+config.write = function(param, value){
+  config[param] = value;
+  fs.writeFileSync('config.json', JSON.stringify(config.data, null, "\t"))
+};
+config.read();
+
+exports.config = config;
+exports.start = (file, args) => {
+	let proc = spawn("./bin/" + file + ".exe", args);
+	proc.stdout.on('data', () => {});
+};
