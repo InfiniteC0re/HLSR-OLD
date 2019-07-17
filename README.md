@@ -1,5 +1,5 @@
 # HLSR (Only Interface)
-Launcher for GoldSrc Engine games with advanced game settings.
+Launcher for GoldSrc Engine games with advanced game settings.<br>
 Used Package - [GoldSrc Package](https://forums.sourceruns.org/t/goldsrc-package-2-3/2634)
 # Features
 + In-game Discord RPC
