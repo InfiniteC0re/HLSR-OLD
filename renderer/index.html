@@ -3,8 +3,8 @@
     <style>
       :root{
         --border-height: 26px;
-        --panel-color: rgb(14,14,14);
-        --button-hover: rgb(16,16,16);
+        --panel-color: rgb(8,8,8);
+        --button-hover: rgb(12,12,12);
         --panel-width: 240px;
         --background-color: rgb(18,18,18);
         --text-color: #a5a5a5;
@@ -144,7 +144,7 @@
         left: 50%;
         transform: translateX(-50%);
         text-align: center;
-        color:#525252;
+        color:#7d7d7d;
       }
       .buttonsList{
         width: 100%;
@@ -178,34 +178,45 @@
         width:100%;
         resize:none;
         outline:none;
-        font-size:18px;
+        font-size:16px;
         font-family: Roboto;
         border:none;
-        padding:8px;
         background:var(--panel-color);
+        overflow: auto;
+        padding: 10px;
+      }
+      ::-webkit-scrollbar {
+        width: 4px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--button-hover);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 4px;
       }
       .entry{
         width: 100%;
         height: 60px;
         background:var(--panel-color);
-        font-size: 20px;
         text-transform: uppercase;
         display: flex;
         align-items: center;
         border-radius: 4px;
-      }
-      .entry[radio]{
-        cursor: pointer;
       }
       .entry:nth-child(1){
         margin-top: 0;
       }
       .entry{
         margin-top: 8px;
+        font-size: 18px;
       }
       .entry .far, .entry .fas{
         width: 34px;
-        margin-left: 14px;
+        margin-left: 20px;
+      }
+      .entry[centered]{
+        justify-content: center;
       }
       .preview{
         display: none;
@@ -273,7 +284,9 @@
     <script>
 	    var startApp = require('electron').remote.require(`${__dirname}../../index.js`).start;
       var config = require('electron').remote.require(`${__dirname}../../index.js`).config;
-      const {BrowserWindow} = require('electron').remote;
+      var fs = require('electron').remote.require(`${__dirname}../../index.js`).fs;
+      var {dialog} = require('electron').remote;
+      var {BrowserWindow} = require('electron').remote;
       var appWindow = BrowserWindow.getFocusedWindow();
       var shell = require('electron').shell;
       window.$ = window.jQuery = require('../jquery.js');

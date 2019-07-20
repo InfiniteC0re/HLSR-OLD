@@ -64,7 +64,8 @@ config.write = function(param, value){
 config.read();
 
 exports.config = config;
+exports.fs = fs;
 exports.start = (file, args) => {
-	let proc = spawn("./bin/" + file + ".exe", args);
+	let proc = spawn("./tools/" + file + ".exe", args);
 	proc.stdout.on('data', () => {});
 };

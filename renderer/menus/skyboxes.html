@@ -44,6 +44,10 @@
     $(".image").css("height", "400px");
     $(".image").css("background", `url(images/${image.replace(" ", "%20")}.jpg)`);
   });
+  $("#install").click(() => {
+    startApp("install_skyboxes", [getActiveId()]);
+    panel.loadMenu("CUSTOMIZATION");
+  });
 </script>
 <div class="list">
   <div class="entry" radio>
