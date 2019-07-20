@@ -49,8 +49,8 @@ config.read = function(param){
     config.data = JSON.parse(fs.readFileSync('config.json'));
   }catch(e){
     config.data = {
-		"discordrpc": false,
-		"autoupdatescheck": false,
+		"discordrpc": true,
+		"autoupdatescheck": true,
 		"lastColor": "#59f255",
 		"games": {
 			"hl": {
