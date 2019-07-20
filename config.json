@@ -1,4 +1,6 @@
 {
+	"discordrpc": true,
+	"autoupdatescheck": false,
 	"games": {
 		"hl": {
 			"bxt": false,

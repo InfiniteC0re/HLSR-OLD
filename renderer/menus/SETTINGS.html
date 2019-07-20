@@ -2,9 +2,15 @@
   var activeButtonHTML = `<i class="far fa-check-square"></i>`;
   var deactiveButtonHTML = `<i class="far fa-square"></i>`;
   var checkMarks = document.getElementsByClassName("entry");
+  checkMarks[0].active = config.read("autoupdatescheck");
+  checkMarks[2].active = config.read("discordrpc");
   for(let i = 0; i < checkMarks.length; i++){
     if(checkMarks[i].getAttribute("radio") != undefined){
-      checkMarks[i].active = false;
+      if(!checkMarks[i].active){
+        checkMarks[i].children[0].innerHTML = deactiveButtonHTML;
+      }else{
+        checkMarks[i].children[0].innerHTML = activeButtonHTML;
+      }
       checkMarks[i].addEventListener("click", (e) => {
         if(!checkMarks[i].active){
           checkMarks[i].children[0].innerHTML = activeButtonHTML;
@@ -12,6 +18,13 @@
           checkMarks[i].children[0].innerHTML = deactiveButtonHTML;
         }
         checkMarks[i].active = !checkMarks[i].active;
+        if(i == 0){
+          config.data.autoupdatescheck = checkMarks[0].active;
+          config.write("autoupdatescheck", config.data.autoupdatescheck);
+        }else if(i == 2){
+          config.data.discordrpc = checkMarks[2].active;
+          config.write("discordrpc", config.data.discordrpc);
+        };
       });
     }
   };
@@ -20,16 +33,16 @@
   <div class="settings">
     <div class="settings-section">Updates</div>
     <div class="entry" radio>
-      <div class="entry-icon"><i class="far fa-square"></i></div>
-      <div class="entry-text">Check for Updates Automatically</div>
+      <div class="entry-icon"></div>
+      <div class="entry-text">Check for Updates On Start</div>
     </div>
     <div class="entry" centered>
       <div class="entry-text">Check Updates</div>
     </div>
     <div class="settings-section">Misc</div>
     <div class="entry" radio>
-      <div class="entry-icon"><i class="far fa-square"></i></div>
-      <div class="entry-text">Discord Rich Presence</div>
+      <div class="entry-icon"></div>
+      <div class="entry-text">Discord Rich Presence (restart required)</div>
     </div>
   </div>
 </div>

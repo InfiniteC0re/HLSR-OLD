@@ -1,8 +1,12 @@
 const electron = require('electron');
 const { spawn } = require('child_process');
+const rpc = require("discord-rich-presence")("554672370028380160");
 const app = electron.app;
 const fs = require('fs');
 const BrowserWindow = electron.BrowserWindow;
+const rpc_splashes = ["Better than v1.0", "Better than v1.1", "Better than v1.1a", "Better than v1.1b", "echo \"Hello Earth!\"", "RSLH", "V2h5IHlvdSdyZSBoZXJlPw==", "After two months...", "True", "False"];
+
+const version = "1.2";
 
 let window = null;
 
@@ -17,6 +21,17 @@ function createWindow(){
         }
     });
     window.loadFile("./renderer/index.html");
+    if(config.data.discordrpc){
+      rpc.updatePresence({
+        "details": "Using HLSR Electron " + version,
+        "largeImageKey": "hlsr",
+        "largeImageText": rpc_splashes[Math.round(Math.random(rpc_splashes.length))],
+        "startTimestamp": new Date().getTime()
+      });
+    };
+    if(config.data.autoupdatescheck){
+      
+    };
 };
 
 app.on("ready", createWindow);
