@@ -7,10 +7,10 @@ Used Package - [GoldSrc Package](https://forums.sourceruns.org/t/goldsrc-package
 + Advanced Customization Possibility
 	 - Menu Backgrounds
 	 - Items Sprites
-	 - Hud Color (only with BunnymodXT)
+	 - Hud Color (only with Bunnymod XT)
 	 - Skyboxes
 + Updates Checker
 + External Tools
-	 - [BunnymodXT](https://github.com/YaLTeR/BunnymodXT)
+	 - [Bunnymod XT](https://github.com/YaLTeR/BunnymodXT)
 	 - [RInput](https://fearless-assassins.com/files/file/1656-rinput/)
 	 - [LiveSplit](https://livesplit.org/)
