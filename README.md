@@ -9,7 +9,7 @@ Used Package - [GoldSrc Package](https://forums.sourceruns.org/t/goldsrc-package
 	 - Items Sprites
 	 - Hud Color (only with BunnymodXT)
 	 - Skyboxes
-+ Auto Updates
++ Updates Checker
 + External Tools
 	 - [BunnymodXT](https://github.com/YaLTeR/BunnymodXT)
 	 - [RInput](https://fearless-assassins.com/files/file/1656-rinput/)
