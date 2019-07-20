@@ -8,7 +8,6 @@ Used Package - [GoldSrc Package](https://forums.sourceruns.org/t/goldsrc-package
 	 - Menu Backgrounds
 	 - Items Sprites
 	 - Hud Color (only with BunnymodXT)
-	 - Crosshairs
 	 - Skyboxes
 + Auto Updates
 + External Tools
