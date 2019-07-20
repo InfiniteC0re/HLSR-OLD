@@ -7,6 +7,7 @@
       b: parseInt(result[3], 16)
     } : null;
   };
+  $("#hudColor").val(config.data.lastColor);
   var color = hexToRgb($("#hudColor").val());
   $(".colorPicker").css("background", $("#hudColor").val());
   $("#command").val(`bxt_hud_color "${color.r} ${color.g} ${color.b}"`);
@@ -31,6 +32,8 @@
     return old;
   };
   $("#save").click(() => {
+	config.data.lastColor = $("#hudColor").val();
+	fs.writeFileSync("./config.json", JSON.stringify(config.data, null, '\t'));
     let valve = writeHUDToGame("valve");
     let gearbox = writeHUDToGame("gearbox");
     let bshift = writeHUDToGame("bshift");

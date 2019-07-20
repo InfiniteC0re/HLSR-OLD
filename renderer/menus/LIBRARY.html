@@ -52,8 +52,8 @@
     if(ls) args.push("-ls");
     startApp("run", args);
   });
-  $("#playAG").click(() => {
-    let game = 'ag';
+  $("#playGC").click(() => {
+    let game = 'rewolf';
     let args = [game];
     startApp("run", args);
   });
@@ -86,10 +86,10 @@
       </div>
     </div>
   </div>
-  <div class="gamePanel" ag>
-    <div class="gameImage" ag></div>
+  <div class="gamePanel" gc>
+    <div class="gameImage" gc></div>
     <div class="buttons">
-      <div class="button ag" id="playAG">Play</div>
+      <div class="button gc" id="playGC">Play</div>
     </div>
   </div>
 </div>

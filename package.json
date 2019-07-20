@@ -4,12 +4,14 @@
   "description": "Tools pack for GoldSrc games speedrunning.",
   "main": "index.js",
   "dependencies": {
+    "discord-rich-presence": "^0.0.8",
     "electron": "^5.0.4",
-	"discord-rich-presence": "^0.0.8"
+    "electron-packager": "^14.0.2"
   },
   "devDependencies": {},
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+	"pack": "electron-packager . HLSR --platform=win32 --arch=ia32 --icon=favicon.ico"
   },
   "author": "InfiniteC0re",
   "license": "GPL-3.0"
