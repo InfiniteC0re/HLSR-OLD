@@ -1,25 +1,24 @@
 {
-	"discordrpc": false,
+	"discordrpc": true,
 	"autoupdatescheck": false,
-	"lastColor": "#59f255",
 	"games": {
 		"hl": {
-			"bxt": true,
-			"ri": true,
+			"bxt": false,
+			"ri": false,
 			"ls": false,
-			"won": true
+			"won": false
 		},
 		"bs": {
-			"bxt": true,
-			"ri": true,
+			"bxt": false,
+			"ri": false,
 			"ls": false,
 			"won": null
 		},
 		"of": {
-			"bxt": true,
-			"ri": true,
+			"bxt": false,
+			"ri": false,
 			"ls": false,
-			"won": true
+			"won": false
 		}
 	}
 }

@@ -3,8 +3,8 @@
     <style>
       :root{
         --border-height: 26px;
-        --panel-color: rgb(8,8,8);
-        --button-hover: rgb(12,12,12);
+        --panel-color: rgb(30,30,30);
+        --button-hover: rgb(44,44,44);
         --panel-width: 240px;
         --background-color: rgb(18,18,18);
         --text-color: #a5a5a5;
@@ -22,17 +22,29 @@
         -webkit-app-region: drag;
         width: 100%;
         height: var(--border-height);
-        background: var(--panel-color);
+        background: var(--background-color);
       }
       #windowBorder .button{
+        background: var(--background-color);
         width: var(--border-height);
         height: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
         font-size: 16px;
+        width: 40px;
         color: var(--text-color);
         -webkit-app-region: no-drag;
+        cursor: auto;
+      }
+      #hideButton:hover, #closeButton:hover {
+        color:black;
+      }
+      #hideButton:hover{
+        background: #1c85d0;
+      }
+      #closeButton:hover{
+        background: #dc2244;
       }
       #content{
         background: var(--background-color);
@@ -46,7 +58,7 @@
       #panel{
         height: calc(100vh - var(--border-height));
         width: var(--panel-width);
-        background: var(--panel-color);
+        background: var(--background-color);
         position: relative;
       }
       .button{
@@ -56,19 +68,23 @@
         align-items: center;
         justify-content: center;
         font-size: 18px;
+        transition: 0.2s all;
+        cursor: pointer;
       }
       #panel .buttons{
         text-align: center;
-        color:var(--text-color);
+        color:rgba(140,140,140);
       }
       #panel .buttons .button{
+        background: var(--background-color);
         height: 64px;
         width: var(--panel-width);
         justify-content: flex-start;
       }
       #panel .buttons .button[active]{
         background: var(--background-color);
-        color: #4f6cff;
+        /* color: #4f6cff; */
+        color:white;
       }
       #panel .buttons .bottom{
         position: absolute;
@@ -118,7 +134,7 @@
       .gamePanel[of]{
         color:#23c757;
       }
-      .gamePanel[ag], .gamePanel[gc]{
+      .gamePanel[gc], .gamePanel[ag]{
         color:#b4c723;
       }
       .gamePanel .button{
@@ -131,8 +147,12 @@
       .button-small{
         width: 60px !important;
       }
+      #panel .buttons .button:hover{
+        background:var(--background-color);
+      }
       .button:hover, .entry:hover{
         background:var(--button-hover);
+        color:rgba(220,220,220);
       }
       .list{
         display: flex;
@@ -176,7 +196,7 @@
         overflow:hidden;
       }
       .editor{
-        color: #4f6cff;
+        color: #f34242;
         height:100%;
         width:100%;
         resize:none;
@@ -187,6 +207,7 @@
         background:var(--panel-color);
         overflow: auto;
         padding: 10px;
+        box-shadow: inset 0px 0px 8px rgba(0,0,0,.2);
       }
       ::-webkit-scrollbar {
         width: 4px;
@@ -199,6 +220,7 @@
         border-radius: 4px;
       }
       .entry{
+        box-shadow: inset 0px 0px 8px rgba(0,0,0,.2);
         width: 100%;
         height: 60px;
         background:var(--panel-color);
@@ -206,13 +228,13 @@
         display: flex;
         align-items: center;
         border-radius: 4px;
+        transition: 0.2s all;
+        margin-top: 8px;
+        font-size: 18px;
+        cursor: pointer;
       }
       .entry:nth-child(1){
         margin-top: 0;
-      }
-      .entry{
-        margin-top: 8px;
-        font-size: 18px;
       }
       .entry .far, .entry .fas{
         width: 34px;
@@ -250,7 +272,7 @@
       }
       input[type=text]{
         margin-top:16px;
-        color: #4f6cff;
+        color: #f34242;
         width:100%;
         resize:none;
         outline:none;
@@ -258,6 +280,7 @@
         font-family: Roboto;
         border:none;
         padding:8px;
+        border-radius: 4px;
         background:var(--panel-color);
       }
       .settings{

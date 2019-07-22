@@ -11,7 +11,7 @@
   "devDependencies": {},
   "scripts": {
     "start": "electron .",
-	"pack": "electron-packager . HLSR --platform=win32 --arch=ia32 --icon=favicon.ico"
+    "pack": "electron-packager . HLSR --platform=win32 --arch=ia32 --icon=favicon.ico"
   },
   "author": "InfiniteC0re",
   "license": "GPL-3.0"

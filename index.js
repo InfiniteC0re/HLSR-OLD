@@ -16,10 +16,10 @@ function createWindow(){
         height: 600,
         frame: false,
 		title: "HLSR",
-        resizable:false,
+        resizable: false,
         webPreferences:{
             nodeIntegration: true,
-			devTools: true
+			      devTools: false
         }
     });
     window.loadFile("./renderer/index.html");
@@ -32,7 +32,7 @@ function createWindow(){
       });
     };
     if(config.data.autoupdatescheck){
-      
+
     };
 };
 
@@ -49,30 +49,29 @@ config.read = function(param){
     config.data = JSON.parse(fs.readFileSync('config.json'));
   }catch(e){
     config.data = {
-		"discordrpc": true,
-		"autoupdatescheck": true,
-		"lastColor": "#59f255",
-		"games": {
-			"hl": {
-				"bxt": true,
-				"ri": true,
-				"ls": false,
-				"won": true
-			},
-			"bs": {
-				"bxt": true,
-				"ri": true,
-				"ls": false,
-				"won": null
-			},
-			"of": {
-				"bxt": true,
-				"ri": true,
-				"ls": false,
-				"won": true
-			}
-		}
-	};
+	  "discordrpc": true,
+	  "autoupdatescheck": true,
+      "games":{
+        "hl":{
+          "bxt": false,
+          "ri": false,
+          "ls": false,
+          "won": false
+        },
+        "bs":{
+          "bxt": false,
+          "ri": false,
+          "ls": false,
+          "won": null
+        },
+        "of":{
+          "bxt": false,
+          "ri": false,
+          "ls": false,
+          "won": false
+        }
+      }
+    };
     fs.writeFileSync('config.json', JSON.stringify(config.data, null, "\t"))
   }
   return config.data[param] != undefined ? config.data[param] : {};
