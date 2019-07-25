@@ -24,18 +24,30 @@
     };
   };
   $("#install").click(() => {
-    startApp("install_skyboxes", [getActiveId()]);
+    startApp("install_crosshairs", [getActiveId()]);
     panel.loadMenu("CUSTOMIZATION");
   });
 </script>
 <div class="list">
   <div class="entry" radio>
     <div class="entry-icon"><i class="far fa-check-square"></i></div>
-    <div class="entry-text">Standard Skyboxes Pack</div>
+    <div class="entry-text">Standard Crosshair</div>
   </div>
   <div class="entry" radio>
     <div class="entry-icon"><i class="far fa-square"></i></div>
-    <div class="entry-text">Better Quality Pack</div>
+    <div class="entry-text">Standard Black Crosshair</div>
+  </div>
+  <div class="entry" radio>
+    <div class="entry-icon"><i class="far fa-square"></i></div>
+    <div class="entry-text">Counter-Strike Crosshair</div>
+  </div>
+  <div class="entry" radio>
+    <div class="entry-icon"><i class="far fa-square"></i></div>
+    <div class="entry-text">Dot Crosshair</div>
+  </div>
+  <div class="entry" radio>
+    <div class="entry-icon"><i class="far fa-square"></i></div>
+    <div class="entry-text">Green Crosshair</div>
   </div>
   <div class="buttonsList">
     <div class="button" id="install">INSTALL</div>

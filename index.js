@@ -15,11 +15,12 @@ function createWindow(){
         width: 800,
         height: 600,
         frame: false,
-		title: "HLSR",
+		    title: "HLSR",
+        color: "#121212",
         resizable: false,
         webPreferences:{
             nodeIntegration: true,
-			      devTools: false
+			      devTools: true
         }
     });
     window.loadFile("./renderer/index.html");
@@ -77,7 +78,7 @@ config.read = function(param){
   return config.data[param] != undefined ? config.data[param] : {};
 };
 config.write = function(param, value){
-  config[param] = value;
+  config.data[param] = value;
   fs.writeFileSync('config.json', JSON.stringify(config.data, null, "\t"))
 };
 config.read();

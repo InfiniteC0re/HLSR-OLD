@@ -23,27 +23,6 @@
       if(radioButtons[i].active) return i;
     };
   };
-  $("#preview").click(() => {
-    let image = null;
-    let active = getActiveId();
-    if(active == 0){
-      image = "Standard";
-    }else if(active == 1){
-      image = "BM";
-    }else if(active == 2){
-      image = "CF";
-    }else if(active == 3){
-      image = "ST";
-    }else if(active == 4){
-      image = "XEN";
-    }else if(active == 5){
-      image = "XEN 2";
-    }
-    $(".preview").css("display", "block");
-    $(".image").css("width", "600px");
-    $(".image").css("height", "400px");
-    $(".image").css("background", `url(images/${image.replace(" ", "%20")}.jpg)`);
-  });
   $("#install").click(() => {
     startApp("install_sprites", [getActiveId()]);
     panel.loadMenu("CUSTOMIZATION");

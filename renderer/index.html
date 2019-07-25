@@ -3,11 +3,25 @@
     <style>
       :root{
         --border-height: 26px;
+        --panel-width: 240px;
+      }
+      html[theme="dark"]{
         --panel-color: rgb(30,30,30);
         --button-hover: rgb(44,44,44);
-        --panel-width: 240px;
         --background-color: rgb(18,18,18);
         --text-color: #a5a5a5;
+        --active-button: white;
+        --button-color: #a5a5a5;
+        --button-color-hover: rgba(220,220,220);
+      }
+      html[theme="light"]{
+        --panel-color: #e8e8e8;
+        --button-hover: rgb(195, 195, 195);
+        --background-color: #ffffff;
+        --text-color: #565656;
+        --active-button: black;
+        --button-color: #565656;
+        --button-color-hover: #1d1d1d;
       }
       body{
         margin: 0;
@@ -19,10 +33,12 @@
       #windowBorder{
         display: flex;
         justify-content: flex-end;
+        align-items: center;
         -webkit-app-region: drag;
         width: 100%;
         height: var(--border-height);
         background: var(--background-color);
+        transition: 0.2s all;
       }
       #windowBorder .button{
         background: var(--background-color);
@@ -54,12 +70,16 @@
         z-index: 1;
         color:var(--text-color);
         position: relative;
+        display: none;
+        transition: 0.2s all;
       }
       #panel{
         height: calc(100vh - var(--border-height));
         width: var(--panel-width);
         background: var(--background-color);
         position: relative;
+        display: none;
+        transition: 0.2s all;
       }
       .button{
         text-transform: uppercase;
@@ -70,10 +90,10 @@
         font-size: 18px;
         transition: 0.2s all;
         cursor: pointer;
+        color: var(--button-color);
       }
       #panel .buttons{
         text-align: center;
-        color:rgba(140,140,140);
       }
       #panel .buttons .button{
         background: var(--background-color);
@@ -83,8 +103,7 @@
       }
       #panel .buttons .button[active]{
         background: var(--background-color);
-        /* color: #4f6cff; */
-        color:white;
+        color:var(--active-button);
       }
       #panel .buttons .bottom{
         position: absolute;
@@ -140,6 +159,7 @@
       .gamePanel .button{
         width: 100%;
         height: 44px;
+        color:inherit;
       }
       .gamePanel .buttons{
         display: flex;
@@ -152,7 +172,7 @@
       }
       .button:hover, .entry:hover{
         background:var(--button-hover);
-        color:rgba(220,220,220);
+        color:var(--button-color-hover);
       }
       .list{
         display: flex;
@@ -160,7 +180,7 @@
         position: relative;
         padding: 8px;
       }
-      #content .bottom{
+      .bottom{
         position: absolute;
         bottom: 6px;
         width: 100%;
@@ -207,7 +227,6 @@
         background:var(--panel-color);
         overflow: auto;
         padding: 10px;
-        box-shadow: inset 0px 0px 8px rgba(0,0,0,.2);
       }
       ::-webkit-scrollbar {
         width: 4px;
@@ -220,7 +239,7 @@
         border-radius: 4px;
       }
       .entry{
-        box-shadow: inset 0px 0px 8px rgba(0,0,0,.2);
+        color:var(--button-color);
         width: 100%;
         height: 60px;
         background:var(--panel-color);
@@ -272,7 +291,7 @@
       }
       input[type=text]{
         margin-top:16px;
-        color: #f34242;
+        color: var(--active-button);
         width:100%;
         resize:none;
         outline:none;
@@ -288,9 +307,10 @@
       }
       .settings .settings-section{
         text-align: center;
-        color:lightgray;
+        color: var(--text-color);
         font-size: 22px;
         margin: 16px 0;
+        transition: 0.2s all;
       }
       .settings .buttons{
         display: flex;
@@ -302,24 +322,96 @@
         width: 100%;
         height: 60px;
       }
+      #loading{
+        height: calc(100vh - var(--border-height));
+        width: 100%;
+        position: relative;
+      }
+      .centered_block{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+      }
+      .centered_block .block_text{
+        margin-top: 16px;
+        font-size: 28px;
+        color:var(--active-button);
+      }
+      #loading .logo{
+        margin: auto;
+        background: url(images/hltp.png);
+        background-size: cover;
+        width: 128px;
+        height: 128px;
+        border-radius: 50%;
+      }
+      .progressbar{
+        margin-top:16px;
+        width: 256px;
+        height: 10px;
+        background: var(--panel-color);
+        border-radius: 32px;
+      }
+      .progressbar .progressline{
+        width: 0%;
+        height: 100%;
+        background: linear-gradient(120deg, #2747bb, #1a76ff);
+        border-radius: 32px;
+      }
+      .block_state{
+        margin-top: 12px;
+        font-size: 16px;
+      }
+      .gray{
+        color:gray;
+      }
+      .darkgray{
+        color:rgba(80,80,80);
+      }
+      #loading .bottom{
+        line-height: 18px;
+      }
+      .left{
+        float: left;
+        margin-left: 8px;
+      }
+      .right{
+        float: right;
+        margin-right: 8px;
+      }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css" integrity="sha256-PF6MatZtiJ8/c9O9HQ8uSUXr++R9KBYu4gbNG5511WE=" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="./scripts/panel.js"></script>
     <script>
-	    var startApp = require('electron').remote.require(`${__dirname}../../index.js`).start;
+      var startApp = require('electron').remote.require(`${__dirname}../../index.js`).start;
       var config = require('electron').remote.require(`${__dirname}../../index.js`).config;
       var fs = require('electron').remote.require(`${__dirname}../../index.js`).fs;
       var {dialog} = require('electron').remote;
       var {BrowserWindow} = require('electron').remote;
       var appWindow = BrowserWindow.getFocusedWindow();
       var shell = require('electron').shell;
+    </script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="./scripts/panel.js"></script>
+    <script>
       window.$ = window.jQuery = require('../jquery.js');
       $(document).ready(() =>{
+        panel.updateTheme();
+        $(".progressline").animate({
+          width: "100%"
+        }, 2000);
+        setTimeout(function(){
+          $("#loading").fadeOut(800, () => {
+            $("#panel").fadeIn(400);
+            $("#content").fadeIn(400);
+            $("#loading").remove();
+            panel.update();
+          });
+        }, 2200);
         $("#panel").load("panel.html", function() {
           panel.updateEvents();
-          panel.update();
         });
         $("#hideButton").click(() => {
           appWindow.minimize();
@@ -335,6 +427,20 @@
     <div id="windowBorder">
       <div id="hideButton" class="button"><i class="fas fa-minus"></i></div>
       <div id="closeButton" class="button"><i class="fas fa-times"></i></div>
+    </div>
+    <div id="loading">
+      <div class="centered_block">
+        <div class="logo"></div>
+        <div class="block_text">HLSR</div>
+        <div class="progressbar">
+          <div class="progressline"></div>
+        </div>
+        <div class="block_state gray">Loading...</div>
+      </div>
+      <div class="bottom darkgray">
+        <span class="left">HLSR 1.2 ALPHA</span>
+        <span class="right">Created by InfiniteC0re</span>
+        </div>
     </div>
     <div class="preview" onclick="$('.preview').hide()">
       <div class="image"></div>

@@ -1,4 +1,5 @@
 let panel = {};
+panel.theme = config.data.theme;
 panel.selected = "LIBRARY";
 panel.update = function(){
   let elems = document.getElementsByClassName('panelButton');
@@ -27,4 +28,14 @@ panel.updateEvents = function(){
 };
 panel.loadMenu = function(path){
   $("#content").load(("./menus/" + path + ".html").replace(" ", "%20"));
+};
+panel.updateTheme = function(){
+  switch (panel.theme){
+    case 1:
+      $("html").attr("theme", "dark");
+      break;
+    case 2:
+      $("html").attr("theme", "light");
+      break;
+  };
 };

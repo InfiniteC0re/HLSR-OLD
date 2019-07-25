@@ -1,4 +1,12 @@
 <script>
+  switch (panel.theme){
+    case 1:
+      $(".current-theme").html("Switch To Light Theme");
+      break;
+    case 2:
+      $(".current-theme").html("Switch To Dark Theme");
+      break;
+  };
   var activeButtonHTML = `<i class="far fa-check-square"></i>`;
   var deactiveButtonHTML = `<i class="far fa-square"></i>`;
   var checkMarks = document.getElementsByClassName("entry");
@@ -28,6 +36,22 @@
       });
     }
   };
+  $(".current-theme").click(() => {
+    switch (panel.theme){
+      case 1:
+        $("html").attr("theme", "light");
+        $(".current-theme").html("Switch To Dark Theme");
+        config.data.theme = panel.theme = 2;
+        config.write("theme", panel.theme);
+        break;
+      case 2:
+        $("html").attr("theme", "dark");
+        $(".current-theme").html("Switch To Light Theme");
+        config.data.theme = panel.theme = 1;
+        config.write("theme", panel.theme);
+        break;
+    };
+  });
 </script>
 <div class="list">
   <div class="settings">
@@ -43,6 +67,9 @@
     <div class="entry" radio>
       <div class="entry-icon"></div>
       <div class="entry-text">Discord Rich Presence (restart required)</div>
+    </div>
+    <div class="entry current-theme" centered>
+      <div class="entry-text">Switch To Light Theme</div>
     </div>
   </div>
 </div>
