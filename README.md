@@ -15,7 +15,3 @@ Used Package - [GoldSrc Package](https://forums.sourceruns.org/t/goldsrc-package
 	 - [Bunnymod XT](https://github.com/YaLTeR/BunnymodXT)
 	 - [RInput](https://fearless-assassins.com/files/file/1656-rinput/)
 	 - [LiveSplit](https://livesplit.org/)
-# Download Links
-[Github Beta-1](https://github.com/InfiniteC0re/HLSR/releases/tag/v1.2-beta-1)
-<br>
-[Google Drive Beta-1](https://drive.google.com/open?id=1yzn4JbkRRPeaq833nFnDOe9Csafhvzl5)
