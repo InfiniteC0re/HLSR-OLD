@@ -2,6 +2,7 @@
 Launcher for GoldSrc Engine games with advanced game settings and scripts editor.<br>
 Used Package - [GoldSrc Package](https://forums.sourceruns.org/t/goldsrc-package-2-3/2634)
 # Features
++ Light And Dark Interface Themes
 + In-game Discord RPC
 + Scripts Editor
 + WON Versions of The Games
@@ -10,6 +11,7 @@ Used Package - [GoldSrc Package](https://forums.sourceruns.org/t/goldsrc-package
 	 - Items Sprites
 	 - Hud Color (only with Bunnymod XT)
 	 - Skyboxes
+	 - Crosshairs
 + Updates Checker
 + External Tools
 	 - [Bunnymod XT](https://github.com/YaLTeR/BunnymodXT)
