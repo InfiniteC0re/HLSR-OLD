@@ -1,0 +1,420 @@
+:root{
+  --border-height: 26px;
+  --panel-width: 240px;
+}
+html[theme="dark"]{
+  --panel-color: rgb(30,30,30);
+  --button-hover: rgb(44,44,44);
+  --background-color: rgb(18,18,18);
+  --text-color: #a5a5a5;
+  --panel-dark: #131313;
+  --active-button: white;
+  --button-color: #a5a5a5;
+  --button-color-hover: rgba(220,220,220);
+}
+html[theme="light"]{
+  --panel-color: #e8e8e8;
+  --button-hover: rgb(195, 195, 195);
+  --background-color: #ffffff;
+  --text-color: #565656;
+  --panel-dark: #fff;
+  --active-button: black;
+  --button-color: #565656;
+  --button-color-hover: #1d1d1d;
+}
+body{
+  margin: 0;
+  background: var(--background-color);
+  font-family: Roboto;
+  -webkit-user-select:none;
+  -webkit-font-smoothing: antialiased;
+}
+#windowBorder{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  -webkit-app-region: drag;
+  width: 100%;
+  height: var(--border-height);
+  background: var(--background-color);
+  transition: 0.2s all;
+}
+#windowBorder .button{
+  background: var(--background-color);
+  width: var(--border-height);
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  width: 40px;
+  color: var(--text-color);
+  -webkit-app-region: no-drag;
+  cursor: auto;
+}
+#hideButton:hover, #closeButton:hover {
+  color:black;
+}
+#hideButton:hover{
+  background: #1c85d0;
+}
+#closeButton:hover{
+  background: #dc2244;
+}
+#content{
+  background: var(--background-color);
+  width: 100%;
+  height: calc(100vh - var(--border-height));
+  max-height: calc(100vh - var(--border-height));
+  z-index: 1;
+  color:var(--text-color);
+  position: relative;
+  display: none;
+  transition: 0.2s all;
+}
+#panel{
+  height: calc(100vh - var(--border-height));
+  width: var(--panel-width);
+  background: var(--background-color);
+  position: relative;
+  display: none;
+  transition: 0.2s all;
+}
+.button{
+  text-transform: uppercase;
+  background: var(--panel-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  transition: 0.2s all;
+  cursor: pointer;
+  color: var(--button-color);
+}
+#panel .buttons{
+  text-align: center;
+}
+#panel .buttons .button{
+  background: var(--background-color);
+  height: 64px;
+  width: var(--panel-width);
+  justify-content: flex-start;
+}
+#panel .buttons .button[active]{
+  background: var(--background-color);
+  color:var(--active-button);
+}
+#panel .buttons .bottom{
+  position: absolute;
+  bottom: 0px;
+}
+.flex{
+  display: flex;
+}
+.panelButton .fas, .panelButton{
+  padding: 0 8px;
+  margin-right: 8px;
+  width: 30px;
+}
+.gamePanel{
+  width: 265px;
+  margin: 3.5px;
+  border-radius: 2px;
+  overflow: hidden;
+}
+.gamePanel .gameImage{
+  width: 265px;
+  height: 130px;
+  background-size: cover !important;
+  background-position: center !important;
+}
+.gameImage[hl]{
+  background: url(images/hl.jpg);
+}
+.gameImage[of]{
+  background: url(images/of.jpg);
+}
+.gameImage[bs]{
+  background: url(images/bs.jpg);
+}
+.gameImage[ag]{
+  background: url(images/ag.jpg);
+}
+.gameImage[gc]{
+  background: url(images/gc.jpg);
+}
+.gamePanel[hl]{
+  color:#c72323;
+}
+.gamePanel[bs]{
+  color:#2382c7;
+}
+.gamePanel[of]{
+  color:#23c757;
+}
+.gamePanel[gc], .gamePanel[ag]{
+  color:#b4c723;
+}
+.gamePanel .button{
+  width: 100%;
+  height: 44px;
+  color:inherit;
+}
+.gamePanel .buttons{
+  display: flex;
+}
+.button-small{
+  width: 60px !important;
+}
+#panel .buttons .button:hover{
+  background:var(--background-color);
+}
+.button:hover, .entry:hover{
+  background:var(--button-hover);
+  color:var(--button-color-hover);
+}
+.list{
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  padding: 8px;
+}
+.bottom{
+  position: absolute;
+  bottom: 6px;
+  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color:#7d7d7d;
+}
+.buttonsList{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.buttonsList .button{
+  width: 160px;
+  height: 60px;
+  margin-top:14px;
+  border-radius: 0px;
+}
+.buttonsList .button:nth-child(1){
+  border-radius: 4px 0 0 4px;
+}
+.buttonsList .button:nth-last-child(1){
+  border-radius: 0 4px 4px 0;
+}
+.editor-wrap{
+  width:100%;
+  position:relative;
+  height:calc(100vh - var(--border-height) - 16px - 80px);
+  display:flex;
+  border-radius:4px;
+  overflow:hidden;
+}
+.editor{
+  color: #f34242;
+  height: 100%;
+  width: 100%;
+  resize: none;
+  outline: none;
+  font-size: 16px;
+  font-family: Roboto;
+  border: none;
+  background: var(--panel-color);
+  overflow: auto;
+  padding: 10px;
+}
+.list .panel{
+  height:calc(100vh - var(--border-height) - 16px - 80px);
+  width:100%;
+  overflow: auto;
+  border-radius:4px;
+  background: var(--panel-color);
+}
+.panel-content{
+  padding: 10px;
+}
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--button-hover);
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+.entry{
+  color:var(--button-color);
+  width: 100%;
+  height: 60px;
+  background:var(--panel-color);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  transition: 0.2s all;
+  margin-top: 8px;
+  font-size: 18px;
+  cursor: pointer;
+}
+.bind-key{
+  background: var(--panel-dark) !important;
+}
+.bind-key, .bind-command{
+  margin-top: 0 !important;
+  font-size: 16px !important;
+  color: var(--text-color) !important;
+}
+.bind-command{
+  margin-top: 8px !important;
+}
+.panel-entry{
+  background:var(--button-hover);
+  padding: 12px;
+  margin-bottom: 8px;
+  border-radius: 4px;
+}
+.bind-description{
+  margin-top: 12px;
+  text-align: center;
+}
+.panel-entry:nth-last-child(1){
+  margin-bottom: 0px;
+}
+.small{
+  height: 46px;
+  font-size: 16px;
+}
+.entry:nth-child(1){
+  margin-top: 0;
+}
+.entry .far, .entry .fas{
+  width: 34px;
+  margin-left: 20px;
+}
+.entry[centered]{
+  justify-content: center;
+}
+.preview{
+  display: none;
+  height: calc(100vh - var(--border-height));
+  width: 100%;
+  position: absolute;
+  top:var(--border-height);
+  left: 0;
+  background: rgba(0,0,0,.8);
+  z-index: 2;
+}
+.preview .image{
+  background-position: center !important;
+  background-size: cover !important;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 4px;
+}
+#hudColor{
+  display: none;
+}
+.colorPicker{
+  border-radius: 4px;
+  width: 100%;
+  height: 50px;
+}
+input[type=text]{
+  margin-top:16px;
+  color: var(--active-button);
+  width:100%;
+  resize:none;
+  outline:none;
+  font-size:18px;
+  font-family: Roboto;
+  border:none;
+  padding:8px;
+  border-radius: 4px;
+  background:var(--panel-color);
+}
+.settings{
+  width: 100%;
+}
+.settings .settings-section{
+  text-align: center;
+  color: var(--text-color);
+  font-size: 22px;
+  margin: 16px 0;
+  transition: 0.2s all;
+}
+.settings .buttons{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-top:8px;
+}
+.settings .button{
+  width: 100%;
+  height: 60px;
+}
+#loading{
+  height: calc(100vh - var(--border-height));
+  width: 100%;
+  position: relative;
+}
+.centered_block{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.centered_block .block_text{
+  margin-top: 16px;
+  font-size: 28px;
+  color:var(--active-button);
+}
+#loading .logo{
+  margin: auto;
+  background: url(images/hltp.png);
+  background-size: cover;
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+}
+.progressbar{
+  margin-top:16px;
+  width: 256px;
+  height: 10px;
+  background: var(--panel-color);
+  border-radius: 32px;
+}
+.progressbar .progressline{
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(120deg, #2747bb, #1a76ff);
+  border-radius: 32px;
+}
+.block_state{
+  margin-top: 12px;
+  font-size: 16px;
+}
+.gray{
+  color:gray;
+}
+.darkgray{
+  color:rgba(80,80,80);
+}
+#loading .bottom{
+  line-height: 18px;
+}
+.left{
+  float: left;
+  margin-left: 8px;
+}
+.right{
+  float: right;
+  margin-right: 8px;
+}
