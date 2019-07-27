@@ -18,3 +18,5 @@ Used Package - [GoldSrc Package](https://forums.sourceruns.org/t/goldsrc-package
 	 - [Bunnymod XT](https://github.com/YaLTeR/BunnymodXT)
 	 - [RInput](https://fearless-assassins.com/files/file/1656-rinput/)
 	 - [LiveSplit](https://livesplit.org/)
+# Full Version [Pre-Release 1]
+Download from [Google Drive](https://drive.google.com/open?id=1yl_WdX4Olx8M7Jnp3Pv3HgbgbXy6o6u9)
