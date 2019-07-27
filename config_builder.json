@@ -26,7 +26,7 @@
 	},
 	"basic binds": {
 		"commands": [
-			"alias \"start_run\" \"exec autoexec.cfg; bxt_hud_timer 1; map c1a0; bxt_timer_reset; bxt_timer_start; bxt_autorecord myrun\"",
+			"alias \"start_run\" \"sv_cheats 1; exec autoexec.cfg; bxt_hud_timer 1; map c1a0; bxt_timer_reset; bxt_timer_start; bxt_autorecord myrun\"",
 			"alias \"show_crosshair\" \"load crosshair\"",
 			"alias \"save_load\" \"save save_load; load save_load\""
 		],
@@ -55,6 +55,16 @@
 				"key": "f2",
 				"command": "gl_texturemode GL_LINEAR_MIPMAP_LINEAR",
 				"description": "Disable pixelated textures"
+			},
+			{
+				"key": "mouse5",
+				"command": "save quick",
+				"description": "Quick save on mouse button"
+			},
+			{
+				"key": "mouse4",
+				"command": "load quick",
+				"description": "Quick load on mouse button"
 			}
 		]
 	},

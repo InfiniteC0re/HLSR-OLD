@@ -1,6 +1,6 @@
 try{
   $(".editor").val(last_data);
-}catch(e){}
+}catch(e){};
 var last_data = null;
 var last_config = undefined;
 var save = function(){
