@@ -1,0 +1,110 @@
+<script>
+  var presets = config_builder.data;
+  var selected = [];
+  function buildConfig(){
+  	let output = "";
+  	selected.forEach((a) => {
+      output += "\n//" + a.toUpperCase() + "\n\n";
+  		let commands = presets[a].commands;
+      if(commands)
+    		commands.forEach(command => {
+    			output += command + "\n";
+        });
+  		let binds = presets[a].binds;
+      if(binds)
+    		binds.forEach(bind => {
+    			output += `bind "${bind.key}" "${bind.command}" //${bind.description} \n`;
+        });
+    });
+  	return output;
+  };
+  for(var preset in presets){
+    if(preset.startsWith("_")) continue;
+    $(".list").prepend(`<div class="entry small" radio><div class="entry-icon"></div><div class="entry-text">${preset}</div></div>`);
+  };
+  var activeButtonHTML = `<i class="far fa-check-square"></i>`;
+  var deactiveButtonHTML = `<i class="far fa-square"></i>`;
+  var checkMarks = document.getElementsByClassName("entry");
+  for(let i = 0; i < checkMarks.length; i++){
+    if(checkMarks[i].getAttribute("radio") != undefined){
+      if(config_builder.data["_selected"].indexOf(checkMarks[i].innerText.toLowerCase()) >= 0){
+        checkMarks[i].active = true;
+      };
+      if(!checkMarks[i].active){
+        checkMarks[i].children[0].innerHTML = deactiveButtonHTML;
+      }else{
+        checkMarks[i].children[0].innerHTML = activeButtonHTML;
+      }
+      checkMarks[i].addEventListener("click", (e) => {
+        if(!checkMarks[i].active){
+          checkMarks[i].children[0].innerHTML = activeButtonHTML;
+        }else{
+          checkMarks[i].children[0].innerHTML = deactiveButtonHTML;
+        }
+        checkMarks[i].active = !checkMarks[i].active;
+      });
+    }
+  };
+  $("#save").click(() => {
+    selected = [];
+    for(let i = 0; i < checkMarks.length; i++){
+      if(checkMarks[i].getAttribute("radio") != undefined){
+        if(checkMarks[i].active){
+          selected.push(checkMarks[i].innerText.toLowerCase());
+        };
+      };
+    };
+    config_builder.data["_selected"] = selected;
+    config_builder.save();
+    // let last_save = dialog.showSaveDialog({
+    //   filters: [
+    //     { name: 'Configs / Scripts', extensions: ['cfg'] }
+    //   ]
+    // });
+    // if(last_save){
+    //   fs.writeFileSync(last_save, buildConfig());
+    // };
+    fs.writeFileSync("./Half-Life/valve/builded_config.cfg", buildConfig());
+  });
+  $("#savetofile").click(() => {
+    selected = [];
+    for(let i = 0; i < checkMarks.length; i++){
+      if(checkMarks[i].getAttribute("radio") != undefined){
+        if(checkMarks[i].active){
+          selected.push(checkMarks[i].innerText.toLowerCase());
+        };
+      };
+    };
+    config_builder.data["_selected"] = selected;
+    config_builder.save();
+    let last_save = dialog.showSaveDialog({
+      filters: [
+        { name: 'Configs / Scripts', extensions: ['cfg'] }
+      ]
+    });
+    if(last_save){
+      fs.writeFileSync(last_save, buildConfig());
+    };
+  });
+  $("#binds").click(() => {
+    selected = [];
+    for(let i = 0; i < checkMarks.length; i++){
+      if(checkMarks[i].getAttribute("radio") != undefined){
+        if(checkMarks[i].active){
+          selected.push(checkMarks[i].innerText.toLowerCase());
+        };
+      };
+    };
+    config_builder.data["_selected"] = selected;
+    config_builder.save();
+    panel.loadMenu("binds");
+  });
+</script>
+<div class="list">
+  <div class="buttonsList">
+    <div class="button" id="save">INSTALL</div>
+    <div class="button" id="savetofile">BUILD TO FILE</div>
+    <div class="button" id="binds">BINDS</div>
+  </div>
+</div>
+<div class="bottom">Build your own config from ready presets.</div>

@@ -10,6 +10,7 @@
         --button-hover: rgb(44,44,44);
         --background-color: rgb(18,18,18);
         --text-color: #a5a5a5;
+        --panel-dark: #131313;
         --active-button: white;
         --button-color: #a5a5a5;
         --button-color-hover: rgba(220,220,220);
@@ -19,6 +20,7 @@
         --button-hover: rgb(195, 195, 195);
         --background-color: #ffffff;
         --text-color: #565656;
+        --panel-dark: #fff;
         --active-button: black;
         --button-color: #565656;
         --button-color-hover: #1d1d1d;
@@ -217,15 +219,25 @@
       }
       .editor{
         color: #f34242;
-        height:100%;
-        width:100%;
-        resize:none;
-        outline:none;
-        font-size:16px;
+        height: 100%;
+        width: 100%;
+        resize: none;
+        outline: none;
+        font-size: 16px;
         font-family: Roboto;
-        border:none;
-        background:var(--panel-color);
+        border: none;
+        background: var(--panel-color);
         overflow: auto;
+        padding: 10px;
+      }
+      .list .panel{
+        height:calc(100vh - var(--border-height) - 16px - 80px);
+        width:100%;
+        overflow: auto;
+        border-radius:4px;
+        background: var(--panel-color);
+      }
+      .panel-content{
         padding: 10px;
       }
       ::-webkit-scrollbar {
@@ -251,6 +263,34 @@
         margin-top: 8px;
         font-size: 18px;
         cursor: pointer;
+      }
+      .bind-key{
+        background: var(--panel-dark) !important;
+      }
+      .bind-key, .bind-command{
+        margin-top: 0 !important;
+        font-size: 16px !important;
+        color: var(--text-color) !important;
+      }
+      .bind-command{
+        margin-top: 8px !important;
+      }
+      .panel-entry{
+        background:var(--button-hover);
+        padding: 12px;
+        margin-bottom: 8px;
+        border-radius: 4px;
+      }
+      .bind-description{
+        margin-top: 12px;
+        text-align: center;
+      }
+      .panel-entry:nth-last-child(1){
+        margin-bottom: 0px;
+      }
+      .small{
+        height: 46px;
+        font-size: 16px;
       }
       .entry:nth-child(1){
         margin-top: 0;
@@ -387,6 +427,7 @@
     <script>
       var startApp = require('electron').remote.require(`${__dirname}../../index.js`).start;
       var config = require('electron').remote.require(`${__dirname}../../index.js`).config;
+      var config_builder = require('electron').remote.require(`${__dirname}../../index.js`).config_builder;
       var fs = require('electron').remote.require(`${__dirname}../../index.js`).fs;
       var {dialog} = require('electron').remote;
       var {BrowserWindow} = require('electron').remote;
@@ -406,7 +447,6 @@
           $("#loading").fadeOut(800, () => {
             $("#panel").fadeIn(400);
             $("#content").fadeIn(400);
-            $("#loading").remove();
             panel.update();
           });
         }, 2200);

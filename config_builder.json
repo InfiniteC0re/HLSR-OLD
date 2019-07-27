@@ -1,0 +1,118 @@
+{
+	"_selected": [
+		"gauss boost (scripted)",
+		"autobhop (scripted)",
+		"basic binds",
+		"fps control"
+	],
+	"fps control": {
+		"binds": [
+			{
+				"key": "z",
+				"command": "fps_max 20",
+				"description": "Set maximal fps to 20"
+			},
+			{
+				"key": "x",
+				"command": "fps_max 100",
+				"description": "Set maximal fps to 100"
+			},
+			{
+				"key": "c",
+				"command": "fps_max 8",
+				"description": "Set maximal fps to 8"
+			},
+			{
+				"key": "capslock",
+				"command": "fps_max 4",
+				"description": "Set maximal fps to 4"
+			}
+		]
+	},
+	"basic binds": {
+		"commands": [
+			"alias \"start_run\" \"exec autoexec.cfg; bxt_hud_timer 1; map c1a0; bxt_timer_reset; bxt_timer_start; bxt_autorecord myrun\"",
+			"alias \"show_crosshair\" \"load crosshair\"",
+			"alias \"save_load\" \"save save_load; load save_load\""
+		],
+		"binds": [
+			{
+				"key": "p",
+				"command": "start_run",
+				"description": "Start your speedrun"
+			},
+			{
+				"key": "[",
+				"command": "show_crosshair",
+				"description": "Show crosshair"
+			},
+			{
+				"key": "v",
+				"command": "save_load",
+				"description": "Fast save and load"
+			},
+			{
+				"key": "f1",
+				"command": "gl_texturemode GL_NEAREST_MIPMAP_NEAREST",
+				"description": "Enable pixelated textures"
+			},
+			{
+				"key": "f2",
+				"command": "gl_texturemode GL_LINEAR_MIPMAP_LINEAR",
+				"description": "Disable pixelated textures"
+			}
+		]
+	},
+	"autobhop (scripted)": {
+		"binds": [
+			{
+				"key": "mwheeldown",
+				"command": "+duck",
+				"description": "Duck"
+			},
+			{
+				"key": "space",
+				"command": "+jump; bxt_autojump 1",
+				"description": "Jump"
+			},
+			{
+				"key": "MOUSE3",
+				"command": "+bxt_tas_ducktap",
+				"description": "Ducktap"
+			}
+		]
+	},
+	"gauss boost (scripted)": {
+		"commands": [
+			"alias _taubo",
+			"alias _taubofunc \"cl_pitchup 180;cl_pitchdown -180;-attack2;wait;cl_pitchup -12;cl_pitchdown 12;wait;cl_pitchup 89.999;cl_pitchdown 89.999\"",
+			"alias +tau \"+attack2; alias _taubo _taubofunc\"",
+			"alias -tau \"_taubo; alias _taubo\""
+		],
+		"binds": [
+			{
+				"key": "tab",
+				"command": "+tau",
+				"description": "Gauss Boost"
+			}
+		]
+	},
+	"trigger delays (scripted)": {
+		"commands": [
+			"alias powerup \"-jump;-moveright;-moveleft;speak fvox/power_level_is;w 100;speak fvox/beep;w 100;speak fvox/beep;w 100;speak fvox/beep;w 100;speak fvox/beep;w 100;speak fvox/beep;w 100;speak fvox/beep;cl_pitchdown 180;cl_pitchup -179;w 30;cl_pitchup -30;cl_pitchdown 31;wait;cl_pitchup 89;cl_pitchdown 89;w 10;+use;w 11;-use;+jump;wait;-jump\"",
+			"alias faf \"save quick;speak fvox/power_level_is.beep._comma.beep._comma.beep._comma.beep;-moveright;-moveleft;-duck;weapon_crowbar;+attack;w 500;weapon_handgrenade;w 40;cl_pitchdown 180;cl_pitchup -179;w 40;cl_pitchup 89.999;cl_pitchdown 89.999;cl_pitchup -40;cl_pitchdown 40.001;w 30;-attack;w 4;+jump;+duck;wait;-jump;-duck;cl_pitchup 89;cl_pitchdown 89;w 61\""
+		],
+		"binds": [
+			{
+				"key": "t",
+				"command": "powerup",
+				"description": "Power Up Trigger Delay"
+			},
+			{
+				"key": "g",
+				"command": "faf",
+				"description": "Forget About Freeman Trigger Delay"
+			}
+		]
+	}
+}

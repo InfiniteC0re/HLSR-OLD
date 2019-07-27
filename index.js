@@ -83,6 +83,26 @@ config.write = function(param, value){
 };
 config.read();
 
+config_builder = {}
+config_builder.data = null;
+
+config_builder.read = function(param){
+  try{
+    config_builder.data = JSON.parse(fs.readFileSync('config_builder.json'));
+  }catch(e){
+    console.log(e);
+  };
+};
+config_builder.write = function(param, value){
+  config_builder.data[param] = value;
+  fs.writeFileSync('config_builder.json', JSON.stringify(config_builder.data, null, "\t"))
+};
+config_builder.save = function(){
+  fs.writeFileSync('config_builder.json', JSON.stringify(config_builder.data, null, "\t"))
+};
+config_builder.read();
+
+exports.config_builder = config_builder;
 exports.config = config;
 exports.fs = fs;
 exports.start = (file, args) => {
