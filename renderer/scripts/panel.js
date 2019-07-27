@@ -9,7 +9,6 @@ panel.update = function(){
     else
       elems[i].setAttribute("active", null);
   };
-  $("#content").load(("./menus/" + panel.selected + ".html").replace(" ", "%20"));
 };
 panel.updateEvents = function(){
   let elems = document.getElementsByClassName('panelButton');

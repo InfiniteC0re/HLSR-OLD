@@ -1,3 +1,7 @@
+try{
+  $(".editor").val(last_data);
+}catch(e){}
+var last_data = null;
 var last_config = undefined;
 var save = function(){
   if(last_config){
@@ -28,9 +32,13 @@ $("#open").click(() => {
   if(last_config){
     content = fs.readFileSync(last_config[0]);
     $(".editor").val(content);
+    last_data = content;
   };
 });
 $("#save").click(save);
+$(".editor").keyup(() => {
+  last_data = $(".editor").val();
+});
 $(".list").on("keydown", (e) => {
   if(e.ctrlKey && e.key.toLowerCase() == "s" || e.key.toLowerCase() == "ы"){
     save();

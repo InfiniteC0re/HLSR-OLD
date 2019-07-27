@@ -1,4 +1,4 @@
-document.getElementsByClassName("bottom")[1].innerHTML = selectedGame + " Start Settings";
+document.getElementsByClassName("bottom")[2].innerHTML = selectedGame + " Start Settings";
 var activeButtonHTML = `<i class="far fa-check-square"></i>`;
 var deactiveButtonHTML = `<i class="far fa-square"></i>`;
 var checkMarks = document.getElementsByClassName("entry");
