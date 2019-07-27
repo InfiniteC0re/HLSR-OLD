@@ -4,7 +4,8 @@ Used Package - [GoldSrc Package](https://forums.sourceruns.org/t/goldsrc-package
 # Features
 + Light And Dark Interface Themes
 + In-game Discord RPC
-+ Scripts Editor
++ Script Editor
++ Config Builder
 + WON Versions of The Games
 + Advanced Customization Possibility
 	 - Menu Backgrounds
