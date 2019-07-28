@@ -2,7 +2,9 @@
 <script>
   $("#install").click(() => {
     startApp("install_skyboxes", [getActiveId()]);
-    panel.loadMenu("CUSTOMIZATION");
+    main.loadMenu("CUSTOMIZATION", () => {
+      main.createNotification("Installing...");
+    });
   });
 </script>
 <div class="list">
@@ -16,7 +18,7 @@
   </div>
   <div class="buttonsList">
     <div class="button" id="install">INSTALL</div>
-    <div class="button" onclick="panel.loadMenu('CUSTOMIZATION')">BACK</div>
+    <div class="button" onclick="main.loadMenu('CUSTOMIZATION')">BACK</div>
   </div>
 </div>
 <div class="bottom">Skyboxes can be better.</div>

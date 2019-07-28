@@ -56,14 +56,6 @@
     };
     config_builder.data["_selected"] = selected;
     config_builder.save();
-    // let last_save = dialog.showSaveDialog({
-    //   filters: [
-    //     { name: 'Configs / Scripts', extensions: ['cfg'] }
-    //   ]
-    // });
-    // if(last_save){
-    //   fs.writeFileSync(last_save, buildConfig());
-    // };
     fs.writeFileSync("./Half-Life/valve/builded_config.cfg", buildConfig());
   });
   $("#savetofile").click(() => {
@@ -97,7 +89,7 @@
     };
     config_builder.data["_selected"] = selected;
     config_builder.save();
-    panel.loadMenu("binds");
+    main.loadMenu("binds");
   });
 </script>
 <div class="list">

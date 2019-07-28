@@ -22,6 +22,7 @@ $("#playHL").click(() => {
   if(ri) args.push("-ri");
   if(ls) args.push("-ls");
   startApp("run", args);
+  main.createNotification("Starting game...");
 });
 $("#playBS").click(() => {
   let game = 'bshift';
@@ -35,6 +36,7 @@ $("#playBS").click(() => {
   if(ri) args.push("-ri");
   if(ls) args.push("-ls");
   startApp("run", args);
+  main.createNotification("Starting game...");
 });
 $("#playOF").click(() => {
   let game = 'gearbox';
@@ -50,9 +52,11 @@ $("#playOF").click(() => {
   if(ri) args.push("-ri");
   if(ls) args.push("-ls");
   startApp("run", args);
+  main.createNotification("Starting game...");
 });
 $("#playGC").click(() => {
   let game = 'rewolf';
   let args = [game];
   startApp("run", args);
+  main.createNotification("Starting game...");
 });

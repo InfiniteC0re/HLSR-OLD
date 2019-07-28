@@ -38,8 +38,10 @@ $("#save").click(() => {
     };
   };
   config_builder.save();
-  panel.loadMenu("CONFIG BUILDER");
+  main.loadMenu("CONFIG BUILDER", () => {
+    main.createNotification("Saved!");
+  });
 });
 $("#back").click(() => {
-  panel.loadMenu("CONFIG BUILDER");
+  main.loadMenu("CONFIG BUILDER");
 });

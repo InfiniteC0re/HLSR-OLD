@@ -1,4 +1,4 @@
-switch (panel.theme){
+switch (main.theme){
   case 1:
     $(".current-theme").html("Switch To Light Theme");
     break;
@@ -36,18 +36,18 @@ for(let i = 0; i < checkMarks.length; i++){
   }
 };
 $(".current-theme").click(() => {
-  switch (panel.theme){
+  switch (main.theme){
     case 1:
       $("html").attr("theme", "light");
       $(".current-theme").html("Switch To Dark Theme");
-      config.data.theme = panel.theme = 2;
-      config.write("theme", panel.theme);
+      config.data.theme = main.theme = 2;
+      config.write("theme", main.theme);
       break;
     case 2:
       $("html").attr("theme", "dark");
       $(".current-theme").html("Switch To Light Theme");
-      config.data.theme = panel.theme = 1;
-      config.write("theme", panel.theme);
+      config.data.theme = main.theme = 1;
+      config.write("theme", main.theme);
       break;
   };
 });

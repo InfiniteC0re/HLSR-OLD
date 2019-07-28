@@ -213,6 +213,15 @@ body{
   display:flex;
   border-radius:4px;
   overflow:hidden;
+  flex-flow: column;
+}
+.editor-filename{
+  display: flex;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+  background: var(--button-hover);
+  color:var(--button-color);
 }
 .editor{
   color: #f34242;
@@ -417,4 +426,15 @@ input[type=text]{
 .right{
   float: right;
   margin-right: 8px;
+}
+.notification{
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 8px;
+  z-index: 999;
+  background: var(--panel-dark);
+  cursor: pointer;
+  border-radius: 4px;
 }

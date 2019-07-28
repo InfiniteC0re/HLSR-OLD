@@ -14,11 +14,11 @@
       var shell = require('electron').shell;
       window.$ = window.jQuery = require('../jquery.js');
     </script>
-    <script src="scripts/panel.js"></script>
+    <script src="scripts/main.js"></script>
     <script>
       $(document).ready(() =>{
-        $("#content").load(("./menus/" + panel.selected + ".html").replace(" ", "%20"));
-        panel.updateTheme();
+        $("#content").load(("./menus/" + main.selected + ".html").replace(" ", "%20"));
+        main.updateTheme();
         $(".progressline").animate({
           width: "100%"
         }, 2000);
@@ -26,11 +26,11 @@
           $("#loading").fadeOut(800, () => {
             $("#panel").fadeIn(400);
             $("#content").fadeIn(400);
-            panel.update();
+            main.update();
           });
         }, 2200);
         $("#panel").load("panel.html", function() {
-          panel.updateEvents();
+          main.updateEvents();
         });
         $("#hideButton").click(() => {
           appWindow.minimize();
@@ -69,7 +69,7 @@
 
       </div>
       <div id="content">
-        <div class="menu"></div>
+
       </div>
     </div>
   </body>

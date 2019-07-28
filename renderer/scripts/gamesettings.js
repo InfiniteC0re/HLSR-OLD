@@ -52,5 +52,7 @@ $("#install").click(() => {
   config.data.games[gamedir].ri = ri;
   config.data.games[gamedir].won = won;
   config.write("games", config.data.games);
-  panel.loadMenu("LIBRARY");
+  main.loadMenu("LIBRARY", () => {
+    main.createNotification("Saved!");
+  });
 });

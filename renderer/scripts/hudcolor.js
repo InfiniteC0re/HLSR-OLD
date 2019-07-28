@@ -40,4 +40,5 @@ $("#save").click(() => {
   fs.writeFileSync("./Half-Life/valve/autoexec.cfg", valve);
   fs.writeFileSync("./Half-Life/gearbox/autoexec.cfg", gearbox);
   fs.writeFileSync("./Half-Life/bshift/autoexec.cfg", bshift);
+  main.createNotification("HUD color was saved!");
 });
