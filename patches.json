@@ -1,14 +1,20 @@
 {
   "1.2":{
     "code": "1.2",
-    "patch_link": "https://google.com",
-    "next_version": "1.3",
+    "patch_link": null,
+    "next_version": "1.2 Alpha",
     "is_last": false
+  },
+  "1.2 Alpha":{
+    "code": "1.2",
+    "patch_link": "https://github.com/InfiniteC0re/HLSR/releases/download/Patches/Test.Patch.1.2.zip",
+    "next_version": "1.3",
+    "is_last": true
   },
   "1.3":{
     "code": "1.3",
-    "patch_link": "https://google.com/1",
+    "patch_link": "",
     "next_version": null,
-    "is_last": true
+    "is_last": false
   }
 }
