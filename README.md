@@ -7,6 +7,12 @@ Used Package - [GoldSrc Package](https://forums.sourceruns.org/t/goldsrc-package
 + In-game Discord RPC
 + Script Editor
 + Config Builder
+	 - Binds Editor
+	 - FPS Control Binds
+	 - Basic Speedrun Binds
+	 - Gauss Boost (Scripted)
+	 - AutoBhop (Scripted)
+	 - Trigger Delays (Scripted)
 + WON Versions of The Games
 + Advanced Customization Possibility
 	 - Menu Backgrounds
