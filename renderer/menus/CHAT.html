@@ -1,0 +1,87 @@
+<script>
+  var socket = io("https://hlsr-chat.herokuapp.com");
+  socket.on("server_info", (data) => {
+    let rooms = data.rooms;
+    let user = data.user;
+    $(".channels").empty();
+    rooms.forEach(function(room){
+      let state = "";
+      if(user.room == room) state = "active";
+      $(".channels").append("<div class=\"chat-button channel\" " + state + ">" + room + "</div>");
+    });
+    let elems = $(".channel");
+    for(let i = 0; i < elems.length; i++){
+      elems[i].onclick = () => {
+        let elem = elems[i];
+        for(let x = 0; x < elems.length; x++){
+          if(elems[x].innerText == elem.innerText) elems[x].setAttribute("active", null)
+          else elems[x].removeAttribute("active");
+        };
+        socket.emit("move_to", elem.innerText);
+      };
+    };
+    $(".username").text(user.nickname);
+  });
+  socket.on("online_update", online => {
+    $(".room-online").text(online.length);
+  });
+  socket.on("message", showMessage);
+  socket.on("messages", showMessages);
+  $(".messagearea").keydown((e) => {
+    e = e.originalEvent
+    if(e.key == "Enter" && !e.shiftKey){
+      e.preventDefault();
+      let msg = $(".messagearea").val();
+      if(socket.connected && msg){
+        socket.emit("message", msg);
+        $(".messagearea").val("");
+      };
+    };
+  });
+  function showMessages(messages){
+    $(".messages").empty();
+    messages.forEach(msg => {
+      showMessage(msg);
+    });
+  };
+  function showMessage(msg) {
+    let message = document.createElement("div");
+    message.className = "message";
+    let message_data = document.createElement("div");
+    message_data.className = "message-data";
+    let message_author = document.createElement("div");
+    let message_content = document.createElement("div");
+    message_author.className = "message-author";
+    message_content.className = "message-content";
+    $(message_content).text(msg.content);
+    $(message_author).text(msg.author);
+    message_data.append(message_author);
+    message_data.append(message_content);
+    message.append(message_data);
+    $(".messages").append(message);
+    $(".messages").scrollTop($(".messages")[0].scrollHeight)
+  };
+</script>
+<div class="list">
+  <div class="chatWindow">
+    <div class="row">
+      <div class="column">
+        <div class="user-panel">
+          <div class="navigation channels"></div>
+          <div class="navigation right">
+            <div class="chat-button username"></div>
+          </div>
+        </div>
+        <div class="room-panel">
+          Online in this room: <span class="room-online">0</span>
+        </div>
+        <div class="chat-panel">
+          <div class="messages"></div>
+        </div>
+        <div class="bottom-panel">
+          <textarea class="messagearea" placeholder="Your message..."></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

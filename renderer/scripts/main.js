@@ -9,6 +9,9 @@ main.update = function(){
     else
       elems[i].setAttribute("active", null);
   };
+  if(typeof socket != "undefined" && socket.connected){
+    socket.disconnect();
+  };
 };
 main.updateEvents = function(){
   let elems = document.getElementsByClassName('panelButton');

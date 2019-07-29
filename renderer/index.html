@@ -13,6 +13,7 @@
       var appWindow = BrowserWindow.getFocusedWindow();
       var shell = require('electron').shell;
       window.$ = window.jQuery = require('../jquery.js');
+      var io = require('../socket.io.js');
     </script>
     <script src="scripts/main.js"></script>
     <script>
