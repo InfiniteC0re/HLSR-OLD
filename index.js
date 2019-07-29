@@ -6,7 +6,7 @@ const fs = require('fs');
 const BrowserWindow = electron.BrowserWindow;
 const rpc_splashes = ["Better than v1.0", "Better than v1.1", "Better than v1.1a", "Better than v1.1b", "echo \"Hello Earth!\"", "RSLH", "V2h5IHlvdSdyZSBoZXJlPw==", "After two months...", "True", "False"];
 
-const version = "1.2";
+const version = "1.2 Alpha";
 
 let window = null;
 
@@ -15,7 +15,7 @@ function createWindow(){
         width: 800,
         height: 600,
         frame: false,
-		    title: "HLSR",
+		title: "HLSR",
         color: "#121212",
         resizable: false,
         webPreferences:{
@@ -32,9 +32,6 @@ function createWindow(){
         "startTimestamp": new Date().getTime()
       });
     };
-    if(config.data.autoupdatescheck){
-
-    };
 };
 
 app.on("ready", createWindow);
@@ -50,8 +47,8 @@ config.read = function(param){
     config.data = JSON.parse(fs.readFileSync('config.json'));
   }catch(e){
     config.data = {
+	  "theme": 1,
 	  "discordrpc": true,
-	  "autoupdatescheck": true,
       "games":{
         "hl":{
           "bxt": false,
@@ -102,10 +99,12 @@ config_builder.save = function(){
 };
 config_builder.read();
 
-exports.config_builder = config_builder;
-exports.config = config;
-exports.fs = fs;
-exports.start = (file, args) => {
+function start(file, args){
 	let proc = spawn("./tools/" + file + ".exe", args);
 	proc.stdout.on('data', () => {});
 };
+
+exports.config_builder = config_builder;
+exports.config = config;
+exports.fs = fs;
+exports.start = start;

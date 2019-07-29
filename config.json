@@ -1,7 +1,6 @@
 {
-	"theme": 1,
+	"theme": 3,
 	"discordrpc": true,
-	"autoupdatescheck": true,
 	"games": {
 		"hl": {
 			"bxt": false,

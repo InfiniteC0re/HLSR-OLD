@@ -9,8 +9,7 @@ switch (main.theme){
 var activeButtonHTML = `<i class="far fa-check-square"></i>`;
 var deactiveButtonHTML = `<i class="far fa-square"></i>`;
 var checkMarks = document.getElementsByClassName("entry");
-checkMarks[0].active = config.read("autoupdatescheck");
-checkMarks[2].active = config.read("discordrpc");
+checkMarks[0].active = config.read("discordrpc");
 for(let i = 0; i < checkMarks.length; i++){
   if(checkMarks[i].getAttribute("radio") != undefined){
     if(!checkMarks[i].active){
@@ -26,10 +25,7 @@ for(let i = 0; i < checkMarks.length; i++){
       }
       checkMarks[i].active = !checkMarks[i].active;
       if(i == 0){
-        config.data.autoupdatescheck = checkMarks[0].active;
-        config.write("autoupdatescheck", config.data.autoupdatescheck);
-      }else if(i == 2){
-        config.data.discordrpc = checkMarks[2].active;
+        config.data.discordrpc = checkMarks[0].active;
         config.write("discordrpc", config.data.discordrpc);
       };
     });

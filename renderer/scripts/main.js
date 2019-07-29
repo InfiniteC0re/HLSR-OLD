@@ -1,5 +1,6 @@
 let main = {};
 main.theme = config.data.theme;
+if(main.theme != 1 && main.theme != 2) main.theme = 1;
 main.selected = "LIBRARY";
 main.update = function(){
   let elems = document.getElementsByClassName('panelButton');

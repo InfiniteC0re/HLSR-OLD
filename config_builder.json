@@ -57,12 +57,12 @@
 				"description": "Disable pixelated textures"
 			},
 			{
-				"key": "mouse5",
+				"key": "mouse4",
 				"command": "save quick",
 				"description": "Quick save on mouse button"
 			},
 			{
-				"key": "mouse4",
+				"key": "mouse5",
 				"command": "load quick",
 				"description": "Quick load on mouse button"
 			}

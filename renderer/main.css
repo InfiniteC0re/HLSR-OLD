@@ -501,6 +501,7 @@ input[type=text]{
   border-radius: 50%;
 }
 .progressbar{
+  margin: auto;
   margin-top:16px;
   width: 256px;
   height: 10px;

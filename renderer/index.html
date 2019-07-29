@@ -24,11 +24,11 @@
           width: "100%"
         }, 2000);
         setTimeout(function(){
-          $("#loading").fadeOut(800, () => {
-            $("#panel").fadeIn(400);
-            $("#content").fadeIn(400);
-            main.update();
-          });
+			$("#loading").fadeOut(800, () => {
+				$("#panel").fadeIn(400);
+				$("#content").fadeIn(400);
+				main.update();
+			});
         }, 2200);
         $("#panel").load("panel.html", function() {
           main.updateEvents();
@@ -55,7 +55,7 @@
         <div class="progressbar">
           <div class="progressline"></div>
         </div>
-        <div class="block_state gray">Loading...</div>
+        <div class="block_state gray state">Loading...</div>
       </div>
       <div class="bottom darkgray">
         <span class="left">HLSR 1.2 ALPHA</span>
