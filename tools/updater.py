@@ -11,16 +11,23 @@ headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleW
 def get_last_version(version, cycle):
     global patches
     try:
-        if not patches[version]['is_last']:
-            get_last_version(patches[version]['next_version'], cycle + 1)
         if cycle > 1:
-            url = requests.get(patches[version]['patch_link'], headers=headers)
-            zipfile = ZipFile(BytesIO(url.content))
-            zipfile.extractall(os.getcwd())
+            os.system('color 2')
+            print("Getting {} update...".format(version))
+            download_update(patches[version]['patch_link'])
+        if not patches[version]['is_last']:
+            if cycle == 1:
+                print("New update(s) detected!")
+            get_last_version(patches[version]['next_version'], cycle + 1)
+        else:
             open('version.txt', 'w').write(version)
     except Exception as e:
         print(e)
 
+def download_update(link):
+    url = requests.get(link, headers=headers)
+    zipfile = ZipFile(BytesIO(url.content))
+    zipfile.extractall(os.getcwd())
 
 try:
     version = open('version.txt').read()
