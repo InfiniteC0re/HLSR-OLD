@@ -26,7 +26,7 @@
 	},
 	"basic binds": {
 		"commands": [
-			"alias \"start_run\" \"sv_cheats 1; exec autoexec.cfg; bxt_hud_timer 1; map c1a0; bxt_timer_reset; bxt_timer_start; bxt_autorecord myrun\"",
+			"alias \"start_run\" \"sv_cheats 0; exec autoexec.cfg; exec builded_config.cfg; bxt_hud_timer 1; map c1a0; bxt_timer_reset; bxt_timer_start; bxt_autorecord myrun\"",
 			"alias \"show_crosshair\" \"load crosshair\"",
 			"alias \"save_load\" \"save save_load; load save_load\""
 		],
@@ -69,6 +69,9 @@
 		]
 	},
 	"autobhop (scripted)": {
+		"commands": [
+			"bxt_autojump 1"
+		],
 		"binds": [
 			{
 				"key": "mwheeldown",
@@ -77,7 +80,7 @@
 			},
 			{
 				"key": "space",
-				"command": "+jump; bxt_autojump 1",
+				"command": "+jump",
 				"description": "Jump"
 			},
 			{
