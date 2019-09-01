@@ -1,7 +1,7 @@
 {
   "name": "hlsr",
-  "version": "1.0.0",
-  "description": "Tools pack for GoldSrc games speedrunning.",
+  "version": "1.2.0",
+  "description": "Unique launcher with customization features and more.",
   "main": "index.js",
   "dependencies": {
     "discord-rich-presence": "^0.0.8",

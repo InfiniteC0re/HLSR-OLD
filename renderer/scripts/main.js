@@ -20,7 +20,7 @@ main.updateEvents = function(){
     elems[i].addEventListener("click", (e) => {
       let elem = elems[i];
       if(/nomenu/.test(elem.className)){
-        shell.openExternal('https://github.com/InfiniteC0re/HLSR')
+        shell.openExternal('http://hlspeedrun.com/')
         return;
       };
       main.selected = elem.innerText.toUpperCase();

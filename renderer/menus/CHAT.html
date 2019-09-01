@@ -1,5 +1,6 @@
 <script>
   var socket = io("https://hlsr-chat.herokuapp.com");
+  socket.emit("activate", config.read("chat_nickname"));
   socket.on("server_info", (data) => {
     let rooms = data.rooms;
     let user = data.user;
@@ -24,6 +25,11 @@
   });
   socket.on("online_update", online => {
     $(".room-online").text(online.length);
+    $(".chatWindow").fadeIn(300);
+  });
+  socket.on("nickname_change", data => {
+    $(".username").text(data.new_nickname);
+    config.write("chat_nickname", data.new_nickname);
   });
   socket.on("message", showMessage);
   socket.on("messages", showMessages);
@@ -61,6 +67,12 @@
     $(".messages").append(message);
     $(".messages").scrollTop($(".messages")[0].scrollHeight)
   };
+  function commands_help() {
+    showMessage({
+      "content": "Send /name nickname to change your nickname.",
+      "author": "HLSR Bot"
+    });
+  }
 </script>
 <div class="list">
   <div class="chatWindow">
@@ -69,7 +81,7 @@
         <div class="user-panel">
           <div class="navigation channels"></div>
           <div class="navigation right">
-            <div class="chat-button username"></div>
+            <div class="chat-button username" onclick="commands_help()"></div>
           </div>
         </div>
         <div class="room-panel">
