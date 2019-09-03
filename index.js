@@ -6,7 +6,7 @@ const fs = require('fs');
 const BrowserWindow = electron.BrowserWindow;
 const rpc_splashes = ["Better than v1.0", "Better than v1.1", "Better than v1.1a", "Better than v1.1b", "echo \"Hello Earth!\"", "RSLH", "V2h5IHlvdSdyZSBoZXJlPw==", "After two months...", "True", "False"];
 
-const version = "1.2 Alpha";
+const version = "1.21";
 
 let window = null;
 
@@ -20,7 +20,7 @@ function createWindow(){
         resizable: false,
         webPreferences:{
             nodeIntegration: true,
-			      devTools: true
+			      devTools: false
         }
     });
     window.loadFile("./renderer/index.html");

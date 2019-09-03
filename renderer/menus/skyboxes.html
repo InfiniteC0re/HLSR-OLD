@@ -1,7 +1,7 @@
 <script src="scripts/radioButtons.js"></script>
 <script>
   $("#install").click(() => {
-    startApp("install_skyboxes", [getActiveId()]);
+    startApp("install_skybox", [getActiveId()]);
     main.loadMenu("CUSTOMIZATION", () => {
       main.createNotification("Installing...");
     });
