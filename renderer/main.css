@@ -3,30 +3,26 @@
   --panel-width: 240px;
 }
 html[theme="dark"]{
-  --panel-color: rgb(30,30,30);
-  --button-hover: rgb(44,44,44);
-  --background-color: rgb(18,18,18);
   --text-color: #a5a5a5;
-  --panel-dark: #131313;
-  --active-button: white;
-  --button-color: #a5a5a5;
-  --button-color-hover: rgba(220,220,220);
-  --chat-alt: #0e0e0e;
+  --active-button: #4d8bff;
+  --background: url(dark-background.svg);
+  --button-color: #212121;
+  --button-hover: rgb(44,44,44);
+  --button-text-color: rgb(220,220,220);
+  --button-text-color-hover: rgb(240,240,240);
 }
 html[theme="light"]{
-  --panel-color: #e8e8e8;
-  --button-hover: rgb(195, 195, 195);
-  --background-color: #ffffff;
-  --text-color: #565656;
-  --panel-dark: #fff;
-  --active-button: black;
-  --button-color: #565656;
-  --button-color-hover: #1d1d1d;
-  --chat-alt: #d0d0d0;
+  --text-color: #4a4a4a;
+  --active-button: #4d8bff;
+  --background: url(light-background.svg);
+  --button-color: #dcdcdc;
+  --button-hover: rgb(202, 202, 202);
+  --button-text-color: rgb(47, 47, 47);
+  --button-text-color-hover: rgb(0, 0, 0);
 }
 body{
   margin: 0;
-  background: var(--background-color);
+  background: var(--background);
   font-family: Roboto;
   -webkit-user-select:none;
   -webkit-font-smoothing: antialiased;
@@ -38,11 +34,9 @@ body{
   -webkit-app-region: drag;
   width: 100%;
   height: var(--border-height);
-  background: var(--background-color);
   transition: 0.2s all;
 }
 #windowBorder .button{
-  background: var(--background-color);
   width: var(--border-height);
   height: 100%;
   display: flex;
@@ -64,7 +58,6 @@ body{
   background: #dc2244;
 }
 #content{
-  background: var(--background-color);
   width: 100%;
   height: calc(100vh - var(--border-height));
   max-height: calc(100vh - var(--border-height));
@@ -77,33 +70,29 @@ body{
 #panel{
   height: calc(100vh - var(--border-height));
   width: var(--panel-width);
-  background: var(--background-color);
   position: relative;
   display: none;
   transition: 0.2s all;
 }
 .button{
   text-transform: uppercase;
-  background: var(--panel-color);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 18px;
   transition: 0.2s all;
   cursor: pointer;
-  color: var(--button-color);
+  color: var(--button-text-color);
 }
 #panel .buttons{
   text-align: center;
 }
 #panel .buttons .button{
-  background: var(--background-color);
   height: 64px;
   width: var(--panel-width);
   justify-content: flex-start;
 }
 #panel .buttons .button[active]{
-  background: var(--background-color);
   color:var(--active-button);
 }
 #panel .buttons .bottom{
@@ -113,10 +102,8 @@ body{
 .flex{
   display: flex;
 }
-.panelButton .fas, .panelButton{
-  padding: 0 8px;
-  margin-right: 8px;
-  width: 30px;
+.icon{
+  margin: 0 20px;
 }
 .gamePanel{
   width: 265px;
@@ -158,6 +145,7 @@ body{
   color:#b4c723;
 }
 .gamePanel .button{
+  background: var(--button-color);
   width: 100%;
   height: 44px;
   color:inherit;
@@ -169,11 +157,7 @@ body{
   width: 60px !important;
 }
 #panel .buttons .button:hover{
-  background:var(--background-color);
-}
-.button:hover, .entry:hover, .chat-button:hover{
-  background:var(--button-hover);
-  color:var(--button-color-hover);
+  background: transparent;
 }
 .list{
   display: flex;
@@ -201,6 +185,7 @@ body{
   height: 60px;
   margin-top:14px;
   border-radius: 0px;
+  background: var(--button-color);
 }
 .buttonsList .button:nth-child(1){
   border-radius: 4px 0 0 4px;
@@ -224,8 +209,8 @@ body{
   position:relative;
   overflow: hidden;
   height:calc(100vh - var(--border-height) - 16px);
-  background: var(--panel-color);
-  color:var(--button-color);
+  background: var(--button-color);
+  color:var(--button-text-color);
   border:none;
 }
 .chatWindow .row{
@@ -245,14 +230,14 @@ body{
 }
 .chat-button{
   padding: 6px 12px;
-  background: var(--panel-color);
+  background: var(--button-color);
   margin-left: 6px;
   border-radius: 4px;
   transition: 0.2s all;
   cursor: pointer;
 }
 .channel[active]{
-  color:#2a60a5;
+  color:var(--active-button);
 }
 .navigation.right{
   margin-left: auto;
@@ -264,23 +249,11 @@ body{
   width: 100%;
   height: 100%;
 }
-.column .room-panel{
-  width: 100%;
-  height: 40px;
-  background: var(--chat-alt);
-  color:var(--button-color);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.room-online{
-  margin-left: 4px;
-}
 .column .chat-panel{
   width: 100%;
   height: 100%;
   display: flex;
-  color:var(--button-color);
+  color:var(--button-text-color);
 }
 .chat-panel .messages{
   width: 100%;
@@ -289,7 +262,7 @@ body{
   overflow: auto;
 }
 .message{
-  background: var(--panel-dark);
+  background: var(--button-hover);
   width: 100%;
   border-radius: 4px;
   margin-top: 6px;
@@ -313,22 +286,22 @@ body{
 .messagearea{
   width: 100%;
   height: 100%;
-  background: inherit;
+  background: var(--button-hover);
   resize: none;
   border: none;
   font-size: 16px;
   font-family: Roboto;
   padding: 10px;
   outline: none;
-  color:var(--button-color);
+  color:var(--button-text-color);
 }
 .editor-filename{
   display: flex;
   height: 40px;
   justify-content: center;
   align-items: center;
-  background: var(--button-hover);
-  color:var(--button-color);
+  background: var(--button-color);
+  color:var(--button-text-color);
 }
 .editor{
   color: #f34242;
@@ -339,7 +312,7 @@ body{
   font-size: 16px;
   font-family: Roboto;
   border: none;
-  background: var(--panel-color);
+  background: var(--button-color);
   overflow: auto;
   padding: 10px;
 }
@@ -348,7 +321,7 @@ body{
   width:100%;
   overflow: auto;
   border-radius:4px;
-  background: var(--panel-color);
+  background: var(--button-color);
 }
 .panel-content{
   padding: 10px;
@@ -364,10 +337,10 @@ body{
   border-radius: 4px;
 }
 .entry{
-  color:var(--button-color);
+  color:var(--button-text-color);
   width: 100%;
   height: 60px;
-  background:var(--panel-color);
+  background:var(--button-color);
   text-transform: uppercase;
   display: flex;
   align-items: center;
@@ -378,7 +351,7 @@ body{
   cursor: pointer;
 }
 .bind-key{
-  background: var(--panel-dark) !important;
+  background: var(--button-color) !important;
 }
 .bind-key, .bind-command{
   margin-top: 0 !important;
@@ -444,7 +417,7 @@ body{
 }
 input[type=text]{
   margin-top:16px;
-  color: var(--active-button);
+  color: var(--button-color);
   width:100%;
   resize:none;
   outline:none;
@@ -453,7 +426,7 @@ input[type=text]{
   border:none;
   padding:8px;
   border-radius: 4px;
-  background:var(--panel-color);
+  background:var(--button-color);
 }
 .settings{
   width: 100%;
@@ -490,7 +463,7 @@ input[type=text]{
 .centered_block .block_text{
   margin-top: 16px;
   font-size: 28px;
-  color:var(--active-button);
+  color:var(--text-color);
 }
 #loading .logo{
   margin: auto;
@@ -505,7 +478,7 @@ input[type=text]{
   margin-top:16px;
   width: 256px;
   height: 10px;
-  background: var(--panel-color);
+  background: var(--button-color);
   border-radius: 32px;
 }
 .progressbar .progressline{
@@ -542,7 +515,12 @@ input[type=text]{
   transform: translate(-50%, -50%);
   padding: 8px;
   z-index: 999;
-  background: var(--panel-dark);
+  background: var(--button-color);
   cursor: pointer;
   border-radius: 4px;
+}
+
+.button:hover, .entry:hover, .chat-button:hover{
+  background:var(--button-hover);
+  color:var(--button-text-color-hover);
 }

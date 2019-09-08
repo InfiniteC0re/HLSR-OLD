@@ -22,9 +22,6 @@
       };
     };
     $(".username").text(user.nickname);
-  });
-  socket.on("online_update", online => {
-    $(".room-online").text(online.length);
     $(".chatWindow").fadeIn(300);
   });
   socket.on("nickname_change", data => {
@@ -83,9 +80,6 @@
           <div class="navigation right">
             <div class="chat-button username" onclick="commands_help()"></div>
           </div>
-        </div>
-        <div class="room-panel">
-          Online in this room: <span class="room-online">0</span>
         </div>
         <div class="chat-panel">
           <div class="messages"></div>
