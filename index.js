@@ -68,6 +68,11 @@ function createWindow(){
   };
 };
 
+function start(file, args){
+  let proc = spawn("./tools/" + file + ".exe", args);
+  proc.stdout.on('data', () => {});
+};
+
 config.read = function(param){
   try{
     config.data = JSON.parse(fs.readFileSync('config.json'));
@@ -100,10 +105,7 @@ config_builder.save = function(){
   fs.writeFileSync('config_builder.json', JSON.stringify(config_builder.data, null, "\t"));
 };
 
-function start(file, args){
-  let proc = spawn("./tools/" + file + ".exe", args);
-  proc.stdout.on('data', () => {});
-};
+fs.writeFileSync('version.txt', build_id);
 
 app.on("ready", createWindow);
 app.on('window-all-closed', () => {app.quit()});
