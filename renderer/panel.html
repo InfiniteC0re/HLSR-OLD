@@ -1,32 +1,41 @@
 <div class="buttons">
-  <a class="button panelButton">
+  <a class="button panelButton" name="lib">
     <span class="icon"><i class="fas fa-gamepad"></i></span>
-    <span class="button-text">Library</span>
+    <span class="button-text" name="lib"></span>
   </a>
-  <a class="button panelButton">
+  <a class="button panelButton" name="scripts">
     <span class="icon"><i class="fas fa-scroll"></i></span>
-    <span class="button-text">Script Editor</span>
+    <span class="button-text" name="scripts"></span>
   </a>
-  <a class="button panelButton">
+  <a class="button panelButton" name="builder">
     <span class="icon"><i class="fas fa-hammer"></i></span>
-    <span class="button-text">Config Builder</span>
+    <span class="button-text" name="builder"></span>
   </a>
-  <a class="button panelButton">
+  <a class="button panelButton" name="customization">
     <span class="icon"><i class="fas fa-sliders-h"></i></span>
-    <span class="button-text">Customization</span>
+    <span class="button-text" name="customization"></span>
   </a>
-  <a class="button panelButton">
+  <a class="button panelButton" name="settings">
     <span class="icon"><i class="fas fa-cog"></i></span>
-    <span class="button-text">Settings</span>
+    <span class="button-text" name="settings"></span>
   </a>
   <div class="bottom">
-    <a class="button panelButton">
+    <a class="button panelButton" name="chat">
       <span class="icon"><i class="fas fa-comment"></i></span>
-      <span class="button-text">Chat</span>
+      <span class="button-text" name="chat"></span>
     </a>
-    <a class="button panelButton nomenu">
+    <a class="button panelButton nomenu" name="website">
       <span class="icon"><i class="fas fa-globe"></i></span>
-      <span class="button-text">Website</span>
+      <span class="button-text" name="website"></span>
     </a>
   </div>
 </div>
+<script>
+  $('.button-text[name="lib"]').html(lang[lang_selected].panel_library);
+  $('.button-text[name="scripts"]').html(lang[lang_selected].panel_script_editor);
+  $('.button-text[name="builder"]').html(lang[lang_selected].panel_config_builder);
+  $('.button-text[name="customization"]').html(lang[lang_selected].panel_customization);
+  $('.button-text[name="settings"]').html(lang[lang_selected].panel_settings);
+  $('.button-text[name="chat"]').html(lang[lang_selected].panel_chat);
+  $('.button-text[name="website"]').html(lang[lang_selected].panel_website);
+</script>

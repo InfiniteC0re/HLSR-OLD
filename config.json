@@ -1,5 +1,5 @@
 {
-	"theme": 3,
+	"theme": 1,
 	"discordrpc": true,
 	"games": {
 		"hl": {
@@ -20,5 +20,6 @@
 			"ls": false,
 			"won": false
 		}
-	}
+	},
+	"language": "english"
 }

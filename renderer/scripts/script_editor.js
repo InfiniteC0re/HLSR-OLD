@@ -9,12 +9,13 @@ if(typeof last_config == "undefined"){
 };
 var updateFileName = function() {
   if(!last_config){
-    $(".editor-filename").html("New file" + (saved ? "" : "*"));
+    $(".editor-filename").html(lang[lang_selected].editor_new_file + (saved ? "" : "*"));
   }else{
     $(".editor-filename").html(last_config[0].split("\\").reverse()[0] + (saved ? "" : "*"));
   };
 };
 var save = function(){
+  let status;
   if(last_config){
     fs.writeFileSync(last_config[0], $(".editor").val());
     saved = true;
@@ -28,11 +29,12 @@ var save = function(){
       fs.writeFileSync(last_save, $(".editor").val());
       last_config = [last_save];
       saved = true;
+      status = last_save;
     };
   };
-  if(saved){
+  if(status){
     updateFileName();
-    main.createNotification("Saved!");
+    main.createNotification(lang[lang_selected].saved);
   };
 };
 $("#new").click(() => {
@@ -58,7 +60,7 @@ $("#open").click(() => {
   };
 });
 $("#save").click(save);
-$(".editor").keyup(() => {
+$(".editor").on('input', () => {
   last_data = $(".editor").val();
   if(saved){
     saved = false;

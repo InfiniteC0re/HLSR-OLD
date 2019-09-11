@@ -1,34 +1,40 @@
 <html>
   <head>
+    <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css" integrity="sha256-PF6MatZtiJ8/c9O9HQ8uSUXr++R9KBYu4gbNG5511WE=" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <script>
-      var startApp = require('electron').remote.require(`${__dirname}../../index.js`).start;
-      var config = require('electron').remote.require(`${__dirname}../../index.js`).config;
-      var config_builder = require('electron').remote.require(`${__dirname}../../index.js`).config_builder;
-      var fs = require('electron').remote.require(`${__dirname}../../index.js`).fs;
-      var {dialog} = require('electron').remote;
-      var {BrowserWindow} = require('electron').remote;
-      var appWindow = BrowserWindow.getFocusedWindow();
-      var shell = require('electron').shell;
+      const remote = require('electron').remote;
+      const shell = require('electron').shell;
+      const main_file = remote.require(`${__dirname}../../index.js`);
+      const startApp = main_file.start;
+      const config = main_file.config;
+      const config_builder = main_file.config_builder;
+      const fs = main_file.fs;
+      const dialog = remote.dialog;
+      const BrowserWindow = remote.BrowserWindow;
+      const appWindow = BrowserWindow.getFocusedWindow();
       window.$ = window.jQuery = require('../jquery.js');
       var io = require('../socket.io.js');
     </script>
+    <script src="scripts/languages.js"></script>
     <script src="scripts/main.js"></script>
     <script>
       $(document).ready(() =>{
-        $("#content").load(("./menus/" + main.selected + ".html").replace(" ", "%20"));
+        $("*[name=\"loading\"]").html(lang[lang_selected].loading);
+        $("*[name=\"author\"]").html(lang[lang_selected].author);
         main.updateTheme();
         $(".progressline").animate({
           width: "100%"
         }, 2000);
         setTimeout(function(){
-			$("#loading").fadeOut(800, () => {
-				$("#panel").fadeIn(400);
-				$("#content").fadeIn(400);
-				main.update();
-			});
+    			$("#loading").fadeOut(800, () => {
+    				$("#panel").fadeIn(400);
+    				$("#content").fadeIn(400);
+            main.loadMenu("LIBRARY");
+            main.update();
+    			});
         }, 2200);
         $("#panel").load("panel.html", function() {
           main.updateEvents();
@@ -55,11 +61,11 @@
         <div class="progressbar">
           <div class="progressline"></div>
         </div>
-        <div class="block_state gray state">Loading...</div>
+        <div class="block_state gray state" name="loading"></div>
       </div>
       <div class="bottom darkgray">
-        <span class="left">HLSR 1.2</span>
-        <span class="right">Created by InfiniteC0re</span>
+        <span class="left">HLSR</span>
+        <span class="right" name="author"></span>
         </div>
     </div>
     <div class="preview" onclick="$('.preview').hide()">

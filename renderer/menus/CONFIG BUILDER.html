@@ -94,9 +94,14 @@
 </script>
 <div class="list">
   <div class="buttonsList">
-    <div class="button" id="save">INSTALL</div>
-    <div class="button" id="savetofile">BUILD TO FILE</div>
-    <div class="button" id="binds">BINDS</div>
+    <div class="button" id="save"></div>
+    <div class="button" id="savetofile"></div>
+    <div class="button" id="binds"></div>
   </div>
 </div>
-<div class="bottom">Build your own config from ready presets.</div>
+<div class="bottom" name="build-desc"></div>
+<script>
+  $("#save").html(lang[lang_selected].save);
+  $("#binds").html(lang[lang_selected].binds);
+  $("#savetofile").html(lang[lang_selected].build_to_file);
+</script>

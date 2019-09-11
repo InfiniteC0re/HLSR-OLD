@@ -22,7 +22,7 @@ $("#playHL").click(() => {
   if(ri) args.push("-ri");
   if(ls) args.push("-ls");
   startApp("run", args);
-  main.createNotification("Starting game...");
+  main.createNotification(lang[lang_selected].starting_game);
 });
 $("#playBS").click(() => {
   let game = 'bshift';
@@ -36,7 +36,7 @@ $("#playBS").click(() => {
   if(ri) args.push("-ri");
   if(ls) args.push("-ls");
   startApp("run", args);
-  main.createNotification("Starting game...");
+  main.createNotification(lang[lang_selected].starting_game);
 });
 $("#playOF").click(() => {
   let game = 'gearbox';
@@ -52,11 +52,11 @@ $("#playOF").click(() => {
   if(ri) args.push("-ri");
   if(ls) args.push("-ls");
   startApp("run", args);
-  main.createNotification("Starting game...");
+  main.createNotification(lang[lang_selected].starting_game);
 });
 $("#playGC").click(() => {
   let game = 'rewolf';
   let args = [game];
   startApp("run", args);
-  main.createNotification("Starting game...");
+  main.createNotification(lang[lang_selected].starting_game);
 });

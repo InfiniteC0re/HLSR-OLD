@@ -3,7 +3,7 @@
   <div class="gamePanel" hl>
     <div class="gameImage" hl></div>
     <div class="buttons">
-      <div class="button hl" id="playHL">Play</div>
+      <div class="button hl play-button" id="playHL"></div>
       <div class="button button-small hl" onclick="main.loadMenu('gamesettings')">
         <i class="fas fa-wrench"></i>
       </div>
@@ -12,7 +12,7 @@
   <div class="gamePanel" bs>
     <div class="gameImage" bs></div>
     <div class="buttons">
-      <div class="button bs" id="playBS">Play</div>
+      <div class="button bs play-button" id="playBS"></div>
       <div class="button button-small bs" onclick="main.loadMenu('gamesettings')">
         <i class="fas fa-wrench"></i>
       </div>
@@ -21,7 +21,7 @@
   <div class="gamePanel" of>
     <div class="gameImage" of></div>
     <div class="buttons">
-      <div class="button of" id="playOF">Play</div>
+      <div class="button of play-button" id="playOF"></div>
       <div class="button button-small of" onclick="main.loadMenu('gamesettings')">
         <i class="fas fa-wrench"></i>
       </div>
@@ -30,8 +30,12 @@
   <div class="gamePanel" gc>
     <div class="gameImage" gc></div>
     <div class="buttons">
-      <div class="button ag" id="playGC">Play</div>
+      <div class="button ag play-button" id="playGC"></div>
     </div>
   </div>
 </div>
-<div class="bottom">You can play any of these games if you have licenced Half-Life in Steam.</div>
+<div class="bottom library-desc"></div>
+<script>
+  $(".library-desc").html(lang[lang_selected].library_desc);
+  $(".play-button").html(lang[lang_selected].library_play);
+</script>

@@ -4,9 +4,14 @@
     <textarea class="editor" contenteditable="true"></textarea>
   </div>
   <div class="buttonsList">
-    <div class="button" id="new">NEW</div>
-    <div class="button" id="open">OPEN</div>
-    <div class="button" id="save">SAVE</div>
+    <div class="button" id="new"></div>
+    <div class="button" id="open"></div>
+    <div class="button" id="save"></div>
   </div>
 </div>
 <script src="scripts/script_editor.js"></script>
+<script>
+	$("#save").html(lang[lang_selected].save);
+	$("#new").html(lang[lang_selected].editor_new);
+  $("#open").html(lang[lang_selected].editor_open);
+</script>

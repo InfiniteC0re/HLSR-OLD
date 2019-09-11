@@ -1,11 +1,13 @@
-let main = {};
-main.theme = config.data.theme;
-if(main.theme != 1 && main.theme != 2) main.theme = 1;
-main.selected = "LIBRARY";
+let main = {
+  theme: config.data.theme,
+  selected: lang[lang_selected].panel_library
+};
+main.theme = main.theme <= 2 && main.theme > 0 ? main.theme : 1;
+
 main.update = function(){
   let elems = document.getElementsByClassName('panelButton');
   for(let i = 0; i < elems.length; i++){
-    if(main.selected != elems[i].innerText.toUpperCase())
+    if(main.selected.toUpperCase() != elems[i].innerText)
       elems[i].removeAttribute("active");
     else
       elems[i].setAttribute("active", null);
@@ -14,6 +16,7 @@ main.update = function(){
     socket.disconnect();
   };
 };
+
 main.updateEvents = function(){
   let elems = document.getElementsByClassName('panelButton');
   for(let i = 0; i < elems.length; i++){
@@ -24,14 +27,31 @@ main.updateEvents = function(){
         return;
       };
       main.selected = elem.innerText.toUpperCase();
-      $("#content").load(("./menus/" + main.selected + ".html").replace(" ", "%20"));
       main.update();
     });
   };
+  $('.panelButton[name="lib"]').click(() => {main.loadMenu("LIBRARY")});
+  $('.panelButton[name="scripts"]').click(() => {main.loadMenu("SCRIPT EDITOR")});
+  $('.panelButton[name="builder"]').click(() => {main.loadMenu("CONFIG BUILDER")});
+  $('.panelButton[name="customization"]').click(() => {main.loadMenu("CUSTOMIZATION")});
+  $('.panelButton[name="settings"]').click(() => {main.loadMenu("SETTINGS")});
+  $('.panelButton[name="chat"]').click(() => {main.loadMenu("CHAT")});
 };
+
+main.updateLocale = function(){
+  $('.button-text[name="lib"]').html(lang[lang_selected].panel_library);
+  $('.button-text[name="scripts"]').html(lang[lang_selected].panel_script_editor);
+  $('.button-text[name="builder"]').html(lang[lang_selected].panel_config_builder);
+  $('.button-text[name="customization"]').html(lang[lang_selected].panel_customization);
+  $('.button-text[name="settings"]').html(lang[lang_selected].panel_settings);
+  $('.button-text[name="chat"]').html(lang[lang_selected].panel_chat);
+  $('.button-text[name="website"]').html(lang[lang_selected].panel_website);
+};
+
 main.loadMenu = function(path, callback=null){
   $("#content").load(("./menus/" + path + ".html").replace(" ", "%20"), callback);
 };
+
 main.updateTheme = function(){
   switch (main.theme){
     case 1:
@@ -42,6 +62,7 @@ main.updateTheme = function(){
       break;
   };
 };
+
 main.createNotification = function(data){
   let elem = document.createElement("div");
   elem.className = "notification";

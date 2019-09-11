@@ -24,7 +24,7 @@
   $("#install").click(() => {
     startApp("install_background", [getActiveId()]);
     main.loadMenu("CUSTOMIZATION", () => {
-      main.createNotification("Installing...");
+      main.createNotification(lang[lang_selected].saved);
     });
   });
 </script>
@@ -54,9 +54,15 @@
     <div class="entry-text">Xen 2</div>
   </div>
   <div class="buttonsList">
-    <div class="button" id="preview">PREVIEW</div>
-    <div class="button" id="install">INSTALL</div>
-    <div class="button" onclick="main.loadMenu('CUSTOMIZATION')">BACK</div>
+    <div class="button" id="preview"></div>
+    <div class="button" id="install"></div>
+    <div class="button" id="back" onclick="main.loadMenu('CUSTOMIZATION')"></div>
   </div>
 </div>
-<div class="bottom">Background you install will appear in all games.</div>
+<div class="bottom" name="desc"></div>
+<script>
+  $("#install").html(lang[lang_selected].install);
+  $("#preview").html(lang[lang_selected].preview);
+  $("#back").html(lang[lang_selected].back);
+  $("*[name=\"desc\"]").html(lang[lang_selected].backgrounds_desc);
+</script>

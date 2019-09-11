@@ -30,7 +30,12 @@
   </div>
   <div class="buttonsList">
     <div class="button" id="install">INSTALL</div>
-    <div class="button" onclick="main.loadMenu('CUSTOMIZATION')">BACK</div>
+    <div class="button" id="back" onclick="main.loadMenu('CUSTOMIZATION')">BACK</div>
   </div>
 </div>
-<div class="bottom">Skyboxes can be better.</div>
+<div class="bottom" name="desc"></div>
+<script>
+  $("#install").html(lang[lang_selected].install);
+  $("#back").html(lang[lang_selected].back);
+  $("*[name=\"desc\"]").html(lang[lang_selected].crosshairs_desc);
+</script>

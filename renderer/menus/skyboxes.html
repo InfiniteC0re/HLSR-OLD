@@ -3,22 +3,29 @@
   $("#install").click(() => {
     startApp("install_skybox", [getActiveId()]);
     main.loadMenu("CUSTOMIZATION", () => {
-      main.createNotification("Installing...");
+      main.createNotification(lang[lang_selected].saved);
     });
   });
 </script>
 <div class="list">
   <div class="entry" radio>
     <div class="entry-icon"><i class="far fa-check-square"></i></div>
-    <div class="entry-text">Standard Skyboxes Pack</div>
+    <div class="entry-text" name="standard"></div>
   </div>
   <div class="entry" radio>
     <div class="entry-icon"><i class="far fa-square"></i></div>
-    <div class="entry-text">Better Quality Pack</div>
+    <div class="entry-text" name="better"></div>
   </div>
   <div class="buttonsList">
-    <div class="button" id="install">INSTALL</div>
-    <div class="button" onclick="main.loadMenu('CUSTOMIZATION')">BACK</div>
+    <div class="button" id="install"></div>
+    <div class="button" id="back" onclick="main.loadMenu('CUSTOMIZATION')">BACK</div>
   </div>
 </div>
-<div class="bottom">Skyboxes can be better.</div>
+<div class="bottom" name="desc"></div>
+<script>
+  $("*[name=\"better\"]").html(lang[lang_selected].skyboxes_better);
+  $("*[name=\"standard\"]").html(lang[lang_selected].skyboxes_standard);
+  $("#install").html(lang[lang_selected].install);
+  $("#back").html(lang[lang_selected].back);
+  $("*[name=\"desc\"]").html(lang[lang_selected].skyboxes_desc);
+</script>

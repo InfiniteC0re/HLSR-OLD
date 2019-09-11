@@ -15,12 +15,16 @@
     </div>
     <div class="entry won" radio>
       <div class="entry-icon"></div>
-      <div class="entry-text">WON Version</div>
+      <div class="entry-text">WON </div>
     </div>
     <div class="buttonsList">
-      <div class="button" id="install">Save</div>
-      <div class="button" onclick="main.loadMenu('LIBRARY')">Back</div>
+      <div class="button" id="save"></div>
+      <div class="button" id="back" onclick="main.loadMenu('LIBRARY')"></div>
     </div>
   </div>
 </div>
 <div class="bottom"></div>
+<script>
+  $("#save").html(lang[lang_selected].save);
+  $("#back").html(lang[lang_selected].back);
+</script>

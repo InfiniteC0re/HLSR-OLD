@@ -4,7 +4,11 @@
     <div class="panel-content"></div>
   </div>
   <div class="buttonsList">
-    <div class="button" id="save">SAVE</div>
-    <div class="button" id="back">BACK</div>
+    <div class="button" id="save"></div>
+    <div class="button" id="back"></div>
   </div>
 </div>
+<script>
+  $("#save").html(lang[lang_selected].save);
+  $("#back").html(lang[lang_selected].back);
+</script>

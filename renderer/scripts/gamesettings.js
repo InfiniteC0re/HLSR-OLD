@@ -1,4 +1,4 @@
-document.getElementsByClassName("bottom")[2].innerHTML = selectedGame + " Start Settings";
+document.getElementsByClassName("bottom")[2].innerHTML = selectedGame + lang[lang_selected].start_settings;
 var activeButtonHTML = `<i class="far fa-check-square"></i>`;
 var deactiveButtonHTML = `<i class="far fa-square"></i>`;
 var checkMarks = document.getElementsByClassName("entry");
@@ -38,7 +38,7 @@ for(let i = 0; i < checkMarks.length; i++){
   });
 };
 if(selectedGame == "Blue Shift") $(".won").remove();
-$("#install").click(() => {
+$("#save").click(() => {
   let bxt = checkMarks[0].active;
   let ls = checkMarks[1].active;
   let ri = checkMarks[2].active;
@@ -53,6 +53,6 @@ $("#install").click(() => {
   config.data.games[gamedir].won = won;
   config.write("games", config.data.games);
   main.loadMenu("LIBRARY", () => {
-    main.createNotification("Saved!");
+    main.createNotification(lang[lang_selected].save);
   });
 });

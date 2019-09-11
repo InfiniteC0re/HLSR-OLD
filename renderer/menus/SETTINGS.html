@@ -1,13 +1,35 @@
 <script src="scripts/settings.js"></script>
 <div class="list">
   <div class="settings">
-    <div class="settings-section">Misc</div>
-    <div class="entry" radio>
-      <div class="entry-icon"></div>
-      <div class="entry-text">Discord Rich Presence (restart required)</div>
+    <div class="settings-section" name="interface"></div>
+    <div class="entry lang-change" centered>
+      <div class="entry-text" name="lang"></div>
     </div>
     <div class="entry current-theme" centered>
-      <div class="entry-text">Switch To Light Theme</div>
+      <div class="entry-text" name="theme"></div>
+    </div>
+    <div class="settings-section" name="misc"></div>
+    <div class="entry" id="rpc" radio>
+      <div class="entry-icon"></div>
+      <div class="entry-text" name="rpc"></div>
     </div>
   </div>
 </div>
+<div class="bottom">Build ID - 3</div>
+<script>
+  function updateLocale(){
+    $("*[name=\"misc\"]").html(lang[lang_selected].misc);
+    $("*[name=\"rpc\"]").html(lang[lang_selected].rpc);
+    $("*[name=\"interface\"]").html(lang[lang_selected].interface);
+    $("*[name=\"lang\"]").html(lang[lang_selected].lang);
+    switch (main.theme){
+      case 1:
+        $(".current-theme").html(lang[lang_selected].light);
+        break;
+      case 2:
+        $(".current-theme").html(lang[lang_selected].dark);
+        break;
+    };
+  };
+  updateLocale();
+</script>
