@@ -1,8 +1,9 @@
 # HLSR
 Launcher for GoldSrc Engine games with advanced game settings and scripts editor.<br>
-Official website - http://hlspeedrun.com/
+Official website - https://hlspeedrun.com/
 # Features
 + Chat
++ Russian and English Interfaces
 + Light And Dark Interface Themes
 + In-game Discord RPC
 + Script Editor
