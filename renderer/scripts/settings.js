@@ -1,9 +1,9 @@
 switch (main.theme){
   case 1:
-    $(".current-theme").html(lang[lang_selected].light);
+    $("*[name=\"theme\"]").html(lang[lang_selected].light);
     break;
   case 2:
-    $(".current-theme").html(lang[lang_selected].dark);
+    $("*[name=\"theme\"]").html(lang[lang_selected].dark);
     break;
 };
 var activeButtonHTML = `<i class="far fa-check-square"></i>`;
@@ -42,13 +42,13 @@ $(".current-theme").click(() => {
   switch (main.theme){
     case 1:
       $("html").attr("theme", "light");
-      $(".current-theme").html(lang[lang_selected].dark);
+      $("*[name=\"theme\"]").html(lang[lang_selected].dark);
       config.data.theme = main.theme = 2;
       config.write("theme", main.theme);
       break;
     case 2:
       $("html").attr("theme", "dark");
-      $(".current-theme").html(lang[lang_selected].light);
+      $("*[name=\"theme\"]").html(lang[lang_selected].light);
       config.data.theme = main.theme = 1;
       config.write("theme", main.theme);
       break;

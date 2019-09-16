@@ -4,6 +4,8 @@
     <link rel="stylesheet" type="text/css" href="main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css" integrity="sha256-PF6MatZtiJ8/c9O9HQ8uSUXr++R9KBYu4gbNG5511WE=" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
     <script>
       const remote = require('electron').remote;
       const shell = require('electron').shell;
@@ -13,8 +15,6 @@
       const config_builder = main_file.config_builder;
       const fs = main_file.fs;
       const dialog = remote.dialog;
-      const BrowserWindow = remote.BrowserWindow;
-      const appWindow = BrowserWindow.getFocusedWindow();
       window.$ = window.jQuery = require('../jquery.js');
       var io = require('../socket.io.js');
     </script>
@@ -22,7 +22,7 @@
     <script src="scripts/main.js"></script>
     <script>
       $(document).ready(() =>{
-        $("*[name=\"loading\"]").html(lang[lang_selected].loading);
+        //$("*[name=\"loading\"]").html(lang[lang_selected].loading);
         $("*[name=\"author\"]").html(lang[lang_selected].author);
         main.updateTheme();
         $(".progressline").animate({
@@ -40,10 +40,12 @@
           main.updateEvents();
         });
         $("#hideButton").click(() => {
-          appWindow.minimize();
+          var window = remote.getCurrentWindow();
+          window.minimize(); 
         });
         $("#closeButton").click(() => {
-          appWindow.close();
+          var window = remote.getCurrentWindow();
+          window.close();
         });
       });
       var selectedGame;
@@ -51,8 +53,8 @@
   </head>
   <body>
     <div id="windowBorder">
-      <div id="hideButton" class="button"><i class="fas fa-minus"></i></div>
-      <div id="closeButton" class="button"><i class="fas fa-times"></i></div>
+      <div id="hideButton" class="button">&#xE921;</div>
+      <div id="closeButton" class="button">&#xE8BB;</div>
     </div>
     <div id="loading">
       <div class="centered_block">
@@ -61,7 +63,6 @@
         <div class="progressbar">
           <div class="progressline"></div>
         </div>
-        <div class="block_state gray state" name="loading"></div>
       </div>
       <div class="bottom darkgray">
         <span class="left">HLSR</span>

@@ -1,5 +1,5 @@
 :root{
-  --border-height: 26px;
+  --border-height: 30px;
   --panel-width: 240px;
 }
 html[theme="dark"]{
@@ -8,7 +8,7 @@ html[theme="dark"]{
   --background: url(dark-background.svg);
   --button-color: #212121;
   --button-hover: rgb(44,44,44);
-  --button-text-color: rgb(220,220,220);
+  --button-text-color: #bbbbbb;
   --button-text-color-hover: rgb(240,240,240);
 }
 html[theme="light"]{
@@ -23,9 +23,11 @@ html[theme="light"]{
 body{
   margin: 0;
   background: var(--background);
-  font-family: Roboto;
+  font-family: "Fira Sans";
   -webkit-user-select:none;
   -webkit-font-smoothing: antialiased;
+  display: flex;
+  flex-flow: column;
 }
 #windowBorder{
   display: flex;
@@ -42,11 +44,12 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 16px;
+  font-size: 10px;
   width: 40px;
   color: var(--text-color);
   -webkit-app-region: no-drag;
   cursor: auto;
+  font-family: 'Segoe MDL2 Assets';
 }
 #hideButton:hover, #closeButton:hover {
   color:black;
@@ -79,7 +82,7 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
+  font-size: 16px;
   transition: 0.2s all;
   cursor: pointer;
   color: var(--button-text-color);
@@ -173,12 +176,17 @@ body{
   transform: translateX(-50%);
   text-align: center;
   color:#7d7d7d;
+  font-size: 14px;
 }
 .buttonsList{
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.section-name{
+  margin: auto;
+  font-size: 18px;
 }
 .buttonsList .button{
   width: 160px;
@@ -188,23 +196,23 @@ body{
   background: var(--button-color);
 }
 .buttonsList .button:nth-child(1){
-  border-radius: 4px 0 0 4px;
+  border-radius: 2px 0 0 2px;
 }
 .buttonsList .button:nth-last-child(1){
-  border-radius: 0 4px 4px 0;
+  border-radius: 0 2px 2px 0;
 }
 .editor-wrap{
   width:100%;
   position:relative;
   height:calc(100vh - var(--border-height) - 16px - 80px);
   display:flex;
-  border-radius:4px;
+  border-radius:2px;
   overflow:hidden;
   flex-flow: column;
 }
 .chatWindow{
   display: none;
-  border-radius: 4px;
+  border-radius: 2px;
   width:100%;
   position:relative;
   overflow: hidden;
@@ -232,7 +240,7 @@ body{
   padding: 6px 12px;
   background: var(--button-color);
   margin-left: 6px;
-  border-radius: 4px;
+  border-radius: 2px;
   transition: 0.2s all;
   cursor: pointer;
 }
@@ -264,7 +272,7 @@ body{
 .message{
   background: var(--button-hover);
   width: 100%;
-  border-radius: 4px;
+  border-radius: 2px;
   margin-top: 6px;
   margin-bottom: 6px;
 }
@@ -278,10 +286,16 @@ body{
 .message-data{
   padding: 6px
 }
+.entry-text{
+  font-size:16px;
+}
 .column .bottom-panel{
   width: 100%;
   height: 80px;
   background: var(--chat-alt);
+}
+.entry-button-text{
+  margin-left: 24px;
 }
 .messagearea{
   width: 100%;
@@ -320,7 +334,7 @@ body{
   height:calc(100vh - var(--border-height) - 16px - 80px);
   width:100%;
   overflow: auto;
-  border-radius:4px;
+  border-radius:2px;
   background: var(--button-color);
 }
 .panel-content{
@@ -339,12 +353,12 @@ body{
 .entry{
   color:var(--button-text-color);
   width: 100%;
-  height: 60px;
+  height: 56px;
   background:var(--button-color);
   text-transform: uppercase;
   display: flex;
   align-items: center;
-  border-radius: 4px;
+  border-radius: 2px;
   transition: 0.2s all;
   margin-top: 8px;
   font-size: 18px;
@@ -365,7 +379,7 @@ body{
   background:var(--button-hover);
   padding: 12px;
   margin-bottom: 8px;
-  border-radius: 4px;
+  border-radius: 2px;
 }
 .bind-description{
   margin-top: 12px;
@@ -405,15 +419,16 @@ body{
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  border-radius: 4px;
+  border-radius: 2px;
 }
 #hudColor{
   display: none;
 }
 .colorPicker{
-  border-radius: 4px;
+  border-radius: 2px;
   width: 100%;
   height: 50px;
+  margin-top: 8px;
 }
 input[type=text]{
   margin-top:16px;
@@ -425,17 +440,15 @@ input[type=text]{
   font-family: Roboto;
   border:none;
   padding:8px;
-  border-radius: 4px;
+  border-radius: 2px;
   background:var(--button-color);
 }
 .settings{
   width: 100%;
 }
 .settings .settings-section{
-  text-align: center;
   color: var(--text-color);
-  font-size: 22px;
-  margin: 16px 0;
+  margin: 16px 8px;
   transition: 0.2s all;
 }
 .settings .buttons{
@@ -517,7 +530,7 @@ input[type=text]{
   z-index: 999;
   background: rgba(0,0,0,.6);
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 2px;
 }
 
 .button:hover, .entry:hover, .chat-button:hover{

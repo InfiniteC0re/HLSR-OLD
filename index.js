@@ -5,15 +5,14 @@ const rpc = require("discord-rich-presence")("554672370028380160");
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 
-const build_id = "3";
+const build_id = "5";
 
 let window = null;
 let config = {};
 let config_builder = {}
 
 function reset_config() {
-  return
-  ({
+  let obj = {
     "theme": 1,
     "discordrpc": true,
     "language": "english",
@@ -37,7 +36,8 @@ function reset_config() {
         "won": false
       }
     }
-  });
+  };
+  return obj;
 };
 
 function save_config(){
@@ -54,7 +54,7 @@ function createWindow(){
     resizable: false,
     webPreferences:{
       nodeIntegration: true,
-  		devTools: true
+  		devTools: false
     }
   });
   window.loadFile("./renderer/index.html");

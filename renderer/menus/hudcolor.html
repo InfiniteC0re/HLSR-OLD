@@ -1,5 +1,6 @@
 <script src="scripts/hudcolor.js"></script>
 <div class="list">
+  <div class="section-name"></div>
   <input type="color" id="hudColor" value="#4f6cff">
   <div class="colorPicker" onclick="$('#hudColor').click()"></div>
   <input type="text" id="command" readonly>
@@ -15,4 +16,5 @@
   $("#save").html(lang[lang_selected].save);
   $("#back").html(lang[lang_selected].back);
   $("*[name=\"desc\"]").html(lang[lang_selected].hud_desc);
+  $(".section-name").html(lang[lang_selected].customization_hud);
 </script>

@@ -2,11 +2,11 @@
 <div class="list">
   <div class="settings">
     <div class="settings-section" name="interface"></div>
-    <div class="entry lang-change" centered>
-      <div class="entry-text" name="lang"></div>
+    <div class="entry lang-change">
+      <div class="entry-text entry-button-text" name="lang"></div>
     </div>
-    <div class="entry current-theme" centered>
-      <div class="entry-text" name="theme"></div>
+    <div class="entry current-theme">
+      <div class="entry-text entry-button-text" name="theme"></div>
     </div>
     <div class="settings-section" name="misc"></div>
     <div class="entry" id="rpc" radio>
@@ -15,7 +15,7 @@
     </div>
   </div>
 </div>
-<div class="bottom">Build ID - 3</div>
+<div class="bottom">Build ID - 5</div>
 <script>
   function updateLocale(){
     $("*[name=\"misc\"]").html(lang[lang_selected].misc);
@@ -24,10 +24,10 @@
     $("*[name=\"lang\"]").html(lang[lang_selected].lang);
     switch (main.theme){
       case 1:
-        $(".current-theme").html(lang[lang_selected].light);
+        $("*[name=\"theme\"]").html(lang[lang_selected].light);
         break;
       case 2:
-        $(".current-theme").html(lang[lang_selected].dark);
+        $("*[name=\"theme\"]").html(lang[lang_selected].dark);
         break;
     };
   };

@@ -59,7 +59,10 @@ $("#open").click(() => {
     updateFileName();
   };
 });
-$("#save").click(save);
+$("#save").click(() => {
+  save();
+  updateFileName();
+});
 $(".editor").on('input', () => {
   last_data = $(".editor").val();
   if(saved){

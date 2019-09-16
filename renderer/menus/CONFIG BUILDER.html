@@ -87,9 +87,11 @@
         };
       };
     };
-    config_builder.data["_selected"] = selected;
-    config_builder.save();
-    main.loadMenu("binds");
+    if(selected.length > 0){
+      config_builder.data["_selected"] = selected;
+      config_builder.save();
+      main.loadMenu("binds");
+    };
   });
 </script>
 <div class="list">
@@ -104,4 +106,5 @@
   $("#save").html(lang[lang_selected].save);
   $("#binds").html(lang[lang_selected].binds);
   $("#savetofile").html(lang[lang_selected].build_to_file);
+  $(".section-name").html(lang[lang_selected].panel_config_builder);
 </script>
